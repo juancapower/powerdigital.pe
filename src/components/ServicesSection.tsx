@@ -147,6 +147,32 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             );
           })}
         </div>
+
+        {/* Banner to /servicios Interactive Brochure */}
+        <div className="bg-[#F8F9FA] border border-[#0B0D17]/10 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+          <div>
+            <div className="inline-flex items-center gap-2 text-xs font-mono-code font-bold uppercase text-[#4361EE] mb-2">
+              <span>Brochure Interactivo & Diagnóstico</span>
+              <span>·</span>
+              <span className="text-[#DEB660]">32+ Soluciones</span>
+            </div>
+            <h4 className="text-xl sm:text-2xl font-bold text-[#0B0D17]">
+              ¿Prefieres una recomendación guiada según tu momento?
+            </h4>
+            <p className="text-xs sm:text-sm text-[#0B0D17]/70 mt-1 max-w-2xl">
+              Prueba nuestro descubridor interactivo o filtra el catálogo completo por servicios
+              puntuales, packs growth o planes mensuales.
+            </p>
+          </div>
+
+          <a
+            href="/servicios"
+            className="inline-flex items-center justify-center gap-2 bg-[#4361EE] hover:bg-[#3451DE] active:scale-98 text-white px-7 py-3.5 rounded-xl text-xs sm:text-sm font-bold transition-all shadow-md shrink-0 whitespace-nowrap"
+          >
+            <span>Explorar catálogo en /servicios</span>
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
       </div>
     </section>
   );

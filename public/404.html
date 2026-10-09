@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Power Digital</title>
+    <script>
+      var l = window.location;
+      var path = l.pathname.replace(/^\//, '');
+      if (path.startsWith('servicios') || path.startsWith('brochure') || path.startsWith('catalogo')) {
+        sessionStorage.setItem('powerdigital_redirect', '/servicios');
+        l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/?route=servicios' + (l.search ? '&' + l.search.slice(1) : '') + l.hash);
+      } else {
+        l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/');
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

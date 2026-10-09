@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ClientsSection } from './components/ClientsSection';
@@ -10,9 +10,64 @@ import { ContactSection } from './components/ContactSection';
 import { FaqSection } from './components/FaqSection';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { ServicesPage } from './pages/ServicesPage';
 
 export default function App() {
   const [selectedService, setSelectedService] = useState<string>('');
+
+  // Route state: 'home' | 'servicios'
+  const [currentRoute, setCurrentRoute] = useState<'home' | 'servicios'>(() => {
+    // Check GitHub Pages redirect flag, path, query param, or hash
+    const redirectKey = typeof window !== 'undefined' ? sessionStorage.getItem('powerdigital_redirect') : null;
+    const path = typeof window !== 'undefined' ? window.location.pathname.toLowerCase() : '';
+    const search = typeof window !== 'undefined' ? window.location.search.toLowerCase() : '';
+    const hash = typeof window !== 'undefined' ? window.location.hash.toLowerCase() : '';
+
+    if (
+      redirectKey === '/servicios' ||
+      path.startsWith('/servicios') ||
+      path.startsWith('/brochure') ||
+      path.startsWith('/catalogo') ||
+      search.includes('route=servicios') ||
+      hash === '#catalogo' ||
+      hash === '#servicios-catalogo'
+    ) {
+      return 'servicios';
+    }
+    return 'home';
+  });
+
+  // Sync address bar on mount if redirected
+  useEffect(() => {
+    const redirectKey = sessionStorage.getItem('powerdigital_redirect');
+    const search = window.location.search.toLowerCase();
+
+    if (redirectKey === '/servicios' || search.includes('route=servicios')) {
+      sessionStorage.removeItem('powerdigital_redirect');
+      window.history.replaceState({}, '', '/servicios');
+      setCurrentRoute('servicios');
+    }
+
+    const handlePopState = () => {
+      const isServicios = window.location.pathname.toLowerCase().startsWith('/servicios');
+      setCurrentRoute(isServicios ? 'servicios' : 'home');
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const navigateToServices = () => {
+    window.history.pushState({}, '', '/servicios');
+    setCurrentRoute('servicios');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const navigateToHome = () => {
+    window.history.pushState({}, '', '/');
+    setCurrentRoute('home');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const scrollToContact = () => {
     const el = document.getElementById('contacto');
@@ -26,10 +81,16 @@ export default function App() {
     scrollToContact();
   };
 
+  // If user is on /servicios, render the full interactive brochure experience
+  if (currentRoute === 'servicios') {
+    return <ServicesPage onNavigateHome={navigateToHome} />;
+  }
+
+  // Otherwise render corporate Home
   return (
     <div className="min-h-screen bg-[#F8F9FA] text-[#0B0D17] flex flex-col font-sans selection:bg-[#4361EE]/15 selection:text-[#4361EE]">
-      {/* Top Navbar */}
-      <Navbar onOpenContact={scrollToContact} />
+      {/* Top Navbar with onNavigateToServices support */}
+      <Navbar onOpenContact={scrollToContact} onNavigateToServices={navigateToServices} />
 
       {/* Main Content Sections */}
       <main className="flex-1">

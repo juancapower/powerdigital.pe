@@ -4,9 +4,10 @@ import { WhatsAppIcon } from './icons/WhatsAppIcon';
 
 interface NavbarProps {
   onOpenContact: () => void;
+  onNavigateToServices?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, onNavigateToServices }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -21,6 +22,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
   const navLinks = [
     { name: 'Inicio', href: '#inicio' },
     { name: 'Servicios', href: '#servicios' },
+    { name: 'Catálogo', href: '/servicios', isSpecial: true },
     { name: 'Método', href: '#metodo' },
     { name: 'Marcas', href: '#marcas' },
     { name: 'Fundador', href: '#fundador' },
@@ -56,15 +58,37 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
             aria-label="Navegación principal"
             className="hidden md:flex items-center gap-7 text-[15px] font-medium text-[#0B0D17]/75"
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="hover:text-[#4361EE] transition-colors relative py-1 hover:underline underline-offset-8 decoration-2 decoration-[#4361EE]"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              if (link.href === '/servicios') {
+                return (
+                  <a
+                    key={link.name}
+                    href="/servicios"
+                    onClick={(e) => {
+                      if (onNavigateToServices) {
+                        e.preventDefault();
+                        onNavigateToServices();
+                      }
+                    }}
+                    className="inline-flex items-center gap-1.5 text-[#4361EE] font-bold hover:text-[#3451DE] transition-colors relative py-1"
+                  >
+                    <span>{link.name}</span>
+                    <span className="text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[#4361EE]/10 text-[#4361EE] px-1.5 py-0.5 rounded-md">
+                      Interactivo
+                    </span>
+                  </a>
+                );
+              }
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="hover:text-[#4361EE] transition-colors relative py-1 hover:underline underline-offset-8 decoration-2 decoration-[#4361EE]"
+                >
+                  {link.name}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Zone 3: CTA Principal */}
@@ -108,10 +132,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2 text-base font-medium text-[#0B0D17] hover:text-[#4361EE] hover:bg-[#4361EE]/5 rounded-lg transition-colors"
+                  onClick={(e) => {
+                    setMobileMenuOpen(false);
+                    if (link.href === '/servicios' && onNavigateToServices) {
+                      e.preventDefault();
+                      onNavigateToServices();
+                    }
+                  }}
+                  className={`px-3 py-2 text-base font-medium rounded-lg transition-colors ${
+                    link.href === '/servicios'
+                      ? 'text-[#4361EE] font-bold bg-[#4361EE]/5'
+                      : 'text-[#0B0D17] hover:text-[#4361EE] hover:bg-[#4361EE]/5'
+                  }`}
                 >
-                  {link.name}
+                  {link.name} {link.href === '/servicios' && '✦'}
                 </a>
               ))}
               <div className="pt-2 flex flex-col gap-2">

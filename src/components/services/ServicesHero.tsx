@@ -1,147 +1,158 @@
-import React from 'react';
-import { ArrowDown, Sparkles, BookOpen, Layers, CheckCircle2, Compass } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion } from 'motion/react';
+import { Compass, Sparkles, ArrowRight, Layers, CheckCircle2 } from 'lucide-react';
+import { SERVICES_ASSETS } from '../../config/servicesAssets';
 
 interface ServicesHeroProps {
-  activeMode: 'discovery' | 'catalog';
-  onSelectMode: (mode: 'discovery' | 'catalog') => void;
   onScrollToDiscovery: () => void;
-  onScrollToCatalog: () => void;
+  onScrollToUniverses: () => void;
 }
 
 export const ServicesHero: React.FC<ServicesHeroProps> = ({
-  activeMode,
-  onSelectMode,
   onScrollToDiscovery,
-  onScrollToCatalog,
+  onScrollToUniverses,
 }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#F8F9FA] overflow-hidden border-b border-[#0B0D17]/8">
-      {/* Premium Abstract Background Artwork (Translucent Orb + Soft Glows) */}
+      {/* Subtle Ambient Background Atmosphere */}
       <div
         aria-hidden="true"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] md:w-[900px] md:h-[900px] pointer-events-none select-none"
-      >
-        {/* Soft Radial Core */}
-        <div className="absolute inset-0 rounded-full bg-radial from-[#4361EE]/10 via-[#DEB660]/5 to-transparent blur-3xl opacity-80" />
+        className="absolute top-0 right-1/4 w-[600px] h-[600px] rounded-full bg-radial from-[#4361EE]/8 via-[#DEB660]/4 to-transparent blur-3xl pointer-events-none select-none"
+      />
 
-        {/* Ambient Ring Layers */}
-        <div className="absolute inset-16 rounded-full border border-[#4361EE]/12 opacity-60 animate-pulse duration-1000" />
-        <div className="absolute inset-32 rounded-full border border-[#DEB660]/15 opacity-50" />
-        <div className="absolute inset-48 rounded-full border border-[#0B0D17]/5 opacity-40" />
-
-        {/* Floating gradient points */}
-        <div className="absolute top-1/4 right-1/4 w-40 h-40 rounded-full bg-[#4361EE]/15 blur-2xl" />
-        <div className="absolute bottom-1/3 left-1/4 w-48 h-48 rounded-full bg-[#DEB660]/12 blur-2xl" />
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-        {/* Eyebrow / Tag */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#0B0D17]/8 shadow-xs text-xs font-semibold text-[#0B0D17] mb-6">
-          <span className="w-2 h-2 rounded-full bg-[#4361EE] animate-ping" />
-          <span className="font-mono-code uppercase tracking-wider text-[#4361EE]">
-            Brochure Interactivo
-          </span>
-          <span aria-hidden="true" className="text-[#DEB660]">·</span>
-          <span className="text-[#0B0D17]/60">Catálogo Inteligente 2026</span>
-        </div>
-
-        {/* Main Impact Headline */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#0B0D17] tracking-tight leading-[1.08] max-w-5xl mx-auto mb-6 text-balance font-title">
-          Diseñamos crecimiento con{' '}
-          <span className="text-[#4361EE]">estrategia</span>, creatividad y{' '}
-          <span className="relative inline-block">
-            <span>tecnología</span>
-            <span
-              aria-hidden="true"
-              className="absolute -bottom-1 left-0 right-0 h-2 bg-[#DEB660]/30 rounded-full -rotate-1"
-            />
-          </span>
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-base sm:text-xl text-[#0B0D17]/75 font-normal leading-relaxed max-w-3xl mx-auto mb-10 text-pretty">
-          Power Digital no vende piezas sueltas. Te ayudamos a encontrar, construir e implementar la
-          solución correcta para tu marca.
-        </p>
-
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14 max-w-md mx-auto">
-          <button
-            onClick={() => {
-              onSelectMode('discovery');
-              onScrollToDiscovery();
-            }}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#4361EE] hover:bg-[#3451DE] active:scale-98 text-white px-7 py-4 rounded-xl text-sm font-bold transition-all shadow-md hover:shadow-lg cursor-pointer"
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left Column: Editorial Copy (7 cols on desktop) */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 text-left"
           >
-            <Compass className="w-4 h-4 text-[#DEB660]" />
-            <span>Descubrir mi solución</span>
-          </button>
+            {/* Kicker label */}
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#4361EE] mb-6">
+              <span className="font-mono-code">Power Discovery 2.0</span>
+              <span aria-hidden="true" className="text-[#DEB660]">·</span>
+              <span className="text-[#0B0D17]/50 font-normal">Showroom de Crecimiento</span>
+            </div>
 
-          <button
-            onClick={() => {
-              onSelectMode('catalog');
-              onScrollToCatalog();
-            }}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-white hover:bg-[#F1F3F5] active:scale-98 text-[#0B0D17] px-7 py-4 rounded-xl text-sm font-semibold border border-[#0B0D17]/10 transition-all shadow-xs hover:border-[#0B0D17]/25 cursor-pointer"
+            {/* Headline */}
+            <h1 className="text-4xl sm:text-6xl lg:text-[4.25rem] font-extrabold text-[#0B0D17] tracking-tight leading-[1.08] mb-6 text-balance font-title">
+              Tu marca no necesita hacer más.{' '}
+              <span className="text-[#4361EE] relative inline-block">
+                Necesita crecer mejor.
+                <span
+                  aria-hidden="true"
+                  className="absolute -bottom-1.5 left-0 right-0 h-2 bg-[#DEB660]/30 rounded-full -rotate-1 pointer-events-none"
+                />
+              </span>
+            </h1>
+
+            {/* Subheadline */}
+            <p className="text-base sm:text-xl text-[#0B0D17]/75 font-normal leading-relaxed max-w-2xl mb-10 text-pretty">
+              Estrategia, creatividad, inteligencia artificial y tecnología para transformar tus ideas
+              en soluciones.
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mb-12">
+              <button
+                onClick={onScrollToDiscovery}
+                className="inline-flex items-center justify-center gap-2.5 bg-[#4361EE] hover:bg-[#3451DE] active:scale-98 text-white px-7 py-4 rounded-xl text-sm font-bold transition-all shadow-md hover:shadow-lg cursor-pointer"
+              >
+                <Compass className="w-4 h-4 text-[#DEB660]" />
+                <span>Descubrir mi ruta</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <button
+                onClick={onScrollToUniverses}
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-[#F1F3F5] active:scale-98 text-[#0B0D17] px-7 py-4 rounded-xl text-sm font-semibold border border-[#0B0D17]/10 transition-all shadow-xs hover:border-[#0B0D17]/25 cursor-pointer"
+              >
+                <Layers className="w-4 h-4 text-[#4361EE]" />
+                <span>Explorar soluciones</span>
+              </button>
+            </div>
+
+            {/* Micro-proof strip */}
+            <div className="pt-6 border-t border-[#0B0D17]/8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#0B0D17]/60">
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#4361EE]" />
+                <span>4 Universos integrados</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#DEB660]" />
+                <span>Recomendación en 2 clics</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#4361EE]" />
+                <span>Growth Partner & Soporte directo</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Editorial Visual Art (5 cols on desktop) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 relative"
           >
-            <BookOpen className="w-4 h-4 text-[#4361EE]" />
-            <span>Ver catálogo completo</span>
-          </button>
-        </div>
+            {/* Soft backdrop frame */}
+            <div className="relative rounded-3xl p-2.5 bg-gradient-to-b from-white/90 via-white/50 to-white/90 border border-[#0B0D17]/8 shadow-xl">
+              {/* Integrated Image Box */}
+              <div className="relative w-full aspect-16/9 lg:aspect-4/3 rounded-2xl overflow-hidden bg-[#0B0D17]">
+                {/* Fallback CSS gradient while image loads or if error */}
+                <div
+                  className="absolute inset-0 transition-opacity duration-700"
+                  style={{
+                    background: SERVICES_ASSETS.hero.fallbackGradient,
+                    opacity: imageLoaded && !imageError ? 0 : 1,
+                  }}
+                />
 
-        {/* Hybrid Navigation Switcher (Discovery vs Full Catalog) */}
-        <div className="inline-flex p-1.5 rounded-2xl bg-white border border-[#0B0D17]/10 shadow-xs max-w-xl mx-auto">
-          <button
-            onClick={() => {
-              onSelectMode('discovery');
-              onScrollToDiscovery();
-            }}
-            className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-              activeMode === 'discovery'
-                ? 'bg-[#4361EE] text-white shadow-xs'
-                : 'text-[#0B0D17]/70 hover:text-[#0B0D17]'
-            }`}
-          >
-            <Sparkles className="w-4 h-4" />
-            <span>1. Modo Descubrimiento</span>
-            <span className="hidden md:inline text-[11px] font-mono-code font-normal opacity-80">
-              (Recomendación guiada)
-            </span>
-          </button>
+                {/* Primary Hero Image */}
+                {!imageError && (
+                  <img
+                    src={SERVICES_ASSETS.hero.url}
+                    alt={SERVICES_ASSETS.hero.alt}
+                    loading="eager"
+                    fetchPriority="high"
+                    referrerPolicy="no-referrer"
+                    onLoad={() => setImageLoaded(true)}
+                    onError={() => setImageError(true)}
+                    className={`w-full h-full object-cover object-center transition-all duration-700 ${
+                      imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+                    }`}
+                  />
+                )}
 
-          <button
-            onClick={() => {
-              onSelectMode('catalog');
-              onScrollToCatalog();
-            }}
-            className={`flex items-center gap-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-              activeMode === 'catalog'
-                ? 'bg-[#4361EE] text-white shadow-xs'
-                : 'text-[#0B0D17]/70 hover:text-[#0B0D17]'
-            }`}
-          >
-            <Layers className="w-4 h-4" />
-            <span>2. Catálogo Directo</span>
-            <span className="hidden md:inline text-[11px] font-mono-code font-normal opacity-80">
-              (4 bloques y filtros)
-            </span>
-          </button>
-        </div>
+                {/* Subtle bottom gradient scrim to integrate seamlessly */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-[#0B0D17]/70 via-transparent to-transparent pointer-events-none"
+                />
 
-        {/* Trust & Structure Micro-badges */}
-        <div className="mt-12 pt-8 border-t border-[#0B0D17]/8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-[#0B0D17]/60">
-          <div className="flex items-center gap-1.5">
-            <CheckCircle2 className="w-4 h-4 text-[#4361EE]" />
-            <span>Enfoque Growth Partner (No agencia convencional)</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <CheckCircle2 className="w-4 h-4 text-[#DEB660]" />
-            <span>Sin precios fijos genéricos · Propuestas a medida</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <CheckCircle2 className="w-4 h-4 text-[#4361EE]" />
-            <span>Sistemas, PNL, IA y Adquisición unificados</span>
-          </div>
+                {/* Editorial Overlay Caption */}
+                <div className="absolute bottom-4 left-4 right-4 text-left p-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 text-white">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[11px] font-mono-code uppercase tracking-wider text-[#DEB660]">
+                      Visión Integral
+                    </span>
+                    <span className="text-[10px] text-white/70 font-mono-code">
+                      Power Digital 2026
+                    </span>
+                  </div>
+                  <p className="text-xs text-white/90 font-medium mt-1 leading-snug">
+                    Unimos estrategia, diseño, inteligencia artificial y código en un único ecosistema.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

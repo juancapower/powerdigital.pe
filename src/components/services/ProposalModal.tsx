@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { X, Check, ArrowRight, Shield, MessageSquare, Send } from 'lucide-react';
+import { X, Check, ArrowRight, Shield, MessageSquare, Send, Calendar, ExternalLink } from 'lucide-react';
 import { ServiceItem } from '../../data/servicesData';
 import { WhatsAppIcon } from '../icons/WhatsAppIcon';
+import { GOOGLE_CALENDAR_AGENDA_URL } from '../../config/servicesObjectivesAssets';
 
 interface ProposalModalProps {
   isOpen: boolean;
@@ -29,12 +30,14 @@ export const ProposalModal: React.FC<ProposalModalProps> = ({
 
   // Construct dynamic WhatsApp message
   const constructWhatsAppMessage = () => {
-    let msg = 'Hola Power Digital, me gustaría consultar una propuesta personalizada';
+    let msg = 'Hola Juan Carlos y equipo Power Digital, me gustaría coordinar una conversación estratégica gratuita de 30 minutos';
     if (service) {
-      msg += ` para el servicio: *${service.name}* (${service.modalityLabel})`;
+      msg += ` para evaluar la solución: *${service.name}* (${service.modalityLabel})`;
+    } else {
+      msg += ' para evaluar la situación de mi marca y encontrar la mejor ruta de crecimiento.';
     }
     if (userContext?.objective) {
-      msg += `.\n• Mi objetivo principal es: ${userContext.objective}`;
+      msg += `\n• Mi objetivo principal es: ${userContext.objective}`;
     }
     if (userContext?.stage) {
       msg += `\n• Mi etapa actual: ${userContext.stage}`;
@@ -91,19 +94,19 @@ export const ProposalModal: React.FC<ProposalModalProps> = ({
 
         {/* Header */}
         <div className="mb-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#4361EE]/10 text-[#4361EE] text-xs font-semibold mb-3">
-            <span>{service?.categoryLabel || 'Propuesta a medida'}</span>
-            <span aria-hidden="true">·</span>
-            <span>{service?.modalityLabel || 'Power Digital'}</span>
+          <div className="flex items-center gap-2 text-xs font-mono-code font-bold uppercase tracking-wider text-[#4361EE] mb-2">
+            <span>{service?.categoryLabel || 'Conversación Estratégica'}</span>
+            <span aria-hidden="true" className="text-[#DEB660]">·</span>
+            <span>30 Minutos con el Fundador</span>
           </div>
 
-          <h3 className="text-2xl font-bold text-[#0B0D17] tracking-tight">
-            {service ? service.name : 'Consultar propuesta personalizada'}
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0B0D17] tracking-tight font-title">
+            {service ? service.name : 'Sesión Estratégica Gratuita (30 min)'}
           </h3>
 
-          <p className="text-xs sm:text-sm text-[#0B0D17]/70 mt-1.5 leading-relaxed">
-            Sin precios genéricos ni paquetes rígidos. Evaluamos tu situación y te planteamos la
-            solución idónea para tu etapa.
+          <p className="text-xs sm:text-sm text-[#0B0D17]/75 mt-2 leading-relaxed">
+            Una sesión directa de 30 minutos con <strong>Juan Carlos Cabrera</strong> para diagnosticar tu
+            situación actual, explorar soluciones y trazar la ruta de crecimiento más eficiente sin compromisos.
           </p>
         </div>
 
@@ -129,20 +132,34 @@ export const ProposalModal: React.FC<ProposalModalProps> = ({
           </div>
         )}
 
-        {/* Action Choice: Direct WhatsApp vs Quick Form */}
-        <div className="space-y-4">
-          <button
-            onClick={handleWhatsAppDirect}
-            className="w-full flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20bd5a] active:scale-98 text-white px-5 py-3.5 rounded-xl text-sm font-bold transition-all shadow-sm hover:shadow-md cursor-pointer"
-          >
-            <WhatsAppIcon className="w-4 h-4" />
-            <span>Consultar directamente por WhatsApp</span>
-          </button>
+        {/* Action Choice: Direct WhatsApp & Google Calendar vs Quick Form */}
+        <div className="space-y-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <button
+              type="button"
+              onClick={handleWhatsAppDirect}
+              className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] active:scale-98 text-white px-4 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all shadow-xs cursor-pointer"
+            >
+              <WhatsAppIcon className="w-4 h-4" />
+              <span>Sesión por WhatsApp</span>
+            </button>
+
+            <a
+              href={GOOGLE_CALENDAR_AGENDA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 bg-[#4361EE] hover:bg-[#3451DE] active:scale-98 text-white px-4 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all shadow-xs cursor-pointer"
+            >
+              <Calendar className="w-4 h-4" />
+              <span>Agendar en Calendar</span>
+              <ExternalLink className="w-3 h-3 text-white/80" />
+            </a>
+          </div>
 
           <div className="relative flex py-1 items-center">
             <div className="flex-grow border-t border-[#0B0D17]/8"></div>
             <span className="flex-shrink mx-3 text-[11px] font-mono-code uppercase text-[#0B0D17]/40">
-              o completa un breve detalle
+              o déjanos tus datos
             </span>
             <div className="flex-grow border-t border-[#0B0D17]/8"></div>
           </div>
@@ -178,7 +195,7 @@ export const ProposalModal: React.FC<ProposalModalProps> = ({
               type="submit"
               className="w-full flex items-center justify-center gap-2 bg-[#0B0D17] hover:bg-[#1E2238] active:scale-98 text-white px-5 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer"
             >
-              <span>{submitted ? 'Preparando mensaje...' : 'Enviar y abrir conversación'}</span>
+              <span>{submitted ? 'Preparando mensaje...' : 'Solicitar sesión de 30 min'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </form>

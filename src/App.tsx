@@ -42,6 +42,21 @@ export default function App() {
     const redirectKey = sessionStorage.getItem('powerdigital_redirect');
     const search = window.location.search.toLowerCase();
 
+    // Check if URL matches a client redirect
+    const clientPath = window.location.pathname.replace(/^\//, '').replace(/\/$/, '').toLowerCase();
+    const clientRedirects: Record<string, string> = {
+      'anatoliazapata': 'https://drive.google.com/open?id=1hn1NMOm4IE2sFTz96UxapVm06BHTUAF8&usp=drive_fs',
+      'anataoliazapata': 'https://drive.google.com/open?id=1hn1NMOm4IE2sFTz96UxapVm06BHTUAF8&usp=drive_fs',
+      'carmengiraldo': 'https://drive.google.com/drive/folders/1Xalofgv8jlzYgvB24VAJUeaBvLpYx5jo',
+      'heydycoach': 'https://drive.google.com/drive/folders/15wtnpdOHNiimTNZKS5mYlvAZF9HwJ2aq',
+      'hugodam': 'https://drive.google.com/drive/folders/1MT6W5zPFqrI_SXe1pphmrfox7CnXmCt1',
+      'levitas': 'https://drive.google.com/drive/folders/1Y373nKOT-Gx_uKhe96TABTSqWpqn_3TZ',
+    };
+    if (clientRedirects[clientPath]) {
+      window.location.replace(clientRedirects[clientPath]);
+      return;
+    }
+
     if (redirectKey === '/servicios' || search.includes('route=servicios')) {
       sessionStorage.removeItem('powerdigital_redirect');
       window.history.replaceState({}, '', '/servicios');

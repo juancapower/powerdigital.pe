@@ -84,6 +84,13 @@ export const PowerDiscoveryExperience: React.FC<PowerDiscoveryExperienceProps> =
                     alt={obj.imageAlt}
                     loading={idx < 3 ? 'eager' : 'lazy'}
                     decoding="async"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (obj.fallbackImageUrl && target.src !== obj.fallbackImageUrl) {
+                        target.srcset = '';
+                        target.src = obj.fallbackImageUrl;
+                      }
+                    }}
                     style={{ objectPosition: obj.objectPosition || 'center center' }}
                     className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                   />

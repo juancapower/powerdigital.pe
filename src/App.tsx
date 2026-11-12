@@ -52,6 +52,7 @@ export default function App() {
       'gabrielavargas': 'https://drive.google.com/',
       'heydycoach': 'https://drive.google.com/drive/folders/15wtnpdOHNiimTNZKS5mYlvAZF9HwJ2aq',
       'hugodam': 'https://drive.google.com/open?id=1MT6W5zPFqrI_SXe1pphmrfox7CnXmCt1&usp=drive_fs',
+      'juancapower': 'https://drive.google.com/',
       'karlaserna': 'https://drive.google.com/drive/folders/1r-lVAQIiZrcDmArwttsViyBjOyQJHvrf?usp=sharing',
       'lizbetquispe': 'https://drive.google.com/',
       'levitas': 'https://drive.google.com/drive/folders/1Y373nKOT-Gx_uKhe96TABTSqWpqn_3TZ',

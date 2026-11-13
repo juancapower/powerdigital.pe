@@ -49,14 +49,14 @@ export default function App() {
       'anataoliazapata': 'https://drive.google.com/open?id=1hn1NMOm4IE2sFTz96UxapVm06BHTUAF8&usp=drive_fs',
       'carmengiraldo': 'https://drive.google.com/drive/folders/1Xalofgv8jlzYgvB24VAJUeaBvLpYx5jo',
       'eversafefinancial': 'https://drive.google.com/open?id=1Mwb1Vu7Cn5cZkZezQuZZgUfgWnpfCE-F&usp=drive_fs',
-      'gabrielavargas': 'https://drive.google.com/',
+      'gabrielavargas': 'https://drive.google.com/open?id=1we5-g_M4SbJTMDM5wWaVEkmiDKuxSHzR&usp=drive_fs',
       'heydycoach': 'https://drive.google.com/drive/folders/15wtnpdOHNiimTNZKS5mYlvAZF9HwJ2aq',
       'hugodam': 'https://drive.google.com/open?id=1MT6W5zPFqrI_SXe1pphmrfox7CnXmCt1&usp=drive_fs',
-      'juancapower': 'https://drive.google.com/',
+      'juancapower': 'https://drive.google.com/open?id=1Lhcy969VYNyzE8wr5D80_wv8aJDOROhx&usp=drive_fs',
       'karlaserna': 'https://drive.google.com/drive/folders/1r-lVAQIiZrcDmArwttsViyBjOyQJHvrf?usp=sharing',
-      'lizbetquispe': 'https://drive.google.com/',
+      'lizbetquispe': 'https://drive.google.com/open?id=1UfIeHarVnyUHueYgDHz1X1W8gUlGuOgy&usp=drive_fs',
       'levitas': 'https://drive.google.com/drive/folders/1Y373nKOT-Gx_uKhe96TABTSqWpqn_3TZ',
-      'negociacionesgabyval': 'https://drive.google.com/',
+      'negociacionesgabyval': 'https://drive.google.com/open?id=1p-vK1l6t3EC-pDrOMp2TAJ4PRBYgFkC_&usp=drive_fs',
     };
     if (clientRedirects[clientPath]) {
       window.location.replace(clientRedirects[clientPath]);

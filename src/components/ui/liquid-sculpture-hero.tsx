@@ -1237,29 +1237,27 @@ const CSS = `
 .sh-theme:hover{background:var(--sh-fg);color:var(--sh-bg)}
 .sh-theme:focus-visible{outline:2px solid var(--sh-acc);outline-offset:4px}
 .sh-navcta{color:#FFFFFF;background:#4361EE;text-decoration:none;font-size:13.5px;font-weight:600;padding:8px 18px;border:none;
-  border-radius:999px;transition:background .25s,transform .2s;box-shadow:0 4px 12px rgba(67,97,238,0.25)}
+  border-radius:10px;transition:background .25s,transform .2s;box-shadow:0 4px 12px rgba(67,97,238,0.25)}
 .sh-navcta:hover{background:#3451DE;transform:translateY(-1px)}
 .sh-hint{position:absolute;z-index:1;transform:translate(-50%,0);display:flex;align-items:center;gap:10px;white-space:nowrap;
-  font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;opacity:.55;pointer-events:none;transition:opacity .8s ease}
-.sh-hint::before{content:"";width:7px;height:7px;border-radius:50%;background:#DEB660;box-shadow:0 0 10px #DEB660;animation:sh-pulse 2.4s ease-in-out infinite}
+  font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;opacity:.52;pointer-events:none;transition:opacity .8s ease}
 .sh-root[data-touched="1"] .sh-hint{opacity:0}
-@keyframes sh-pulse{0%,100%{transform:scale(.7);opacity:.5}50%{transform:scale(1.2);opacity:1}}
 .sh-spacer{flex:1 1 auto;min-height:0}
 .sh-content{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);align-items:end;
-  gap:clamp(20px,3.5cqw,56px);padding:0 clamp(20px,3.2cqw,48px) clamp(20px,2.6cqw,36px)}
-.sh-eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.88;margin:0 0 clamp(10px,1.2cqw,16px);
+  gap:clamp(20px,3.5cqw,56px);padding:0 clamp(20px,3.2cqw,48px) clamp(24px,3cqw,40px)}
+.sh-eyebrow{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.92;margin:0 0 clamp(10px,1.2cqw,16px);
   display:flex;align-items:center;gap:10px;font-weight:700;color:#4361EE}
-.sh-eyebrow::before{content:"";width:24px;height:2px;background:#DEB660;opacity:.95}
-.sh-h1{font-family:var(--sh-head);font-weight:800;font-size:clamp(30px,min(4.8cqw,7.5cqh),68px);line-height:1.06;letter-spacing:-.035em;margin:0;
+.sh-eyebrow::before{content:"";width:24px;height:1.5px;background:#DEB660;opacity:.95}
+.sh-h1{font-family:var(--sh-head);font-weight:800;font-size:clamp(30px,min(4.8cqw,7.5cqh),68px);line-height:1.04;letter-spacing:-.035em;margin:0;
   text-wrap:balance}
 .sh-h1 .sh-line{display:block}
 .sh-accent{font-family:var(--sh-accent);font-style:italic;font-weight:400;letter-spacing:-.02em;color:var(--sh-acc)}
 .sh-aside{max-width:440px;justify-self:end;padding-bottom:.2em}
-.sh-body{font-size:clamp(14px,1.02cqw,16.5px);line-height:1.52;letter-spacing:-.01em;margin:0 0 20px;opacity:.82;text-wrap:pretty}
+.sh-body{font-size:clamp(14px,1.05cqw,16.5px);line-height:1.55;letter-spacing:-.01em;margin:0 0 22px;opacity:.82;text-wrap:pretty}
 .sh-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
-.sh-btn{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 22px;border-radius:999px;background:#4361EE;
+.sh-btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 24px;border-radius:12px;background:#4361EE;
   color:#FFFFFF;text-decoration:none;font-size:14px;font-weight:600;letter-spacing:-.01em;transition:all .3s cubic-bezier(.2,.7,.2,1);
-  box-shadow:0 8px 20px rgba(67,97,238,0.25);cursor:pointer}
+  box-shadow:0 8px 20px rgba(67,97,238,0.24);cursor:pointer}
 .sh-btn:hover{background:#3451DE;transform:translateY(-1px);box-shadow:0 12px 24px rgba(67,97,238,0.32)}
 .sh-btn svg,.sh-txt svg{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
 .sh-btn:hover svg,.sh-txt:hover svg{transform:translateX(3px)}
@@ -1280,8 +1278,8 @@ const CSS = `
 }
 @container (max-width:639px){
   .sh-nav{padding-top:14px}
-  .sh-content{padding:0 20px 24px;gap:16px}
-  .sh-h1{font-size:clamp(24px,min(8cqw,5.2cqh),36px);line-height:1.12}
+  .sh-content{padding:0 20px 28px;gap:16px}
+  .sh-h1{font-size:clamp(26px,min(8.2cqw,5.5cqh),38px);line-height:1.08}
   .sh-body{font-size:14px;line-height:1.5;margin-bottom:16px}
   .sh-eyebrow{font-size:10.5px;margin-bottom:8px}
   .sh-ctas{gap:12px;width:100%}
@@ -1290,7 +1288,6 @@ const CSS = `
   .sh-credit{right:auto;left:50%;transform:translateX(-50%)}
 }
 @media (prefers-reduced-motion:reduce){
-  .sh-hint::before{animation:none}
   .sh-canvas,.sh-fallback,.sh-btn,.sh-btn svg,.sh-txt svg{transition:none}
 }
 `

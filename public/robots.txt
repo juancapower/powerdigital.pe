@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+Allow: /servicios
+
+Disallow: /karlaserna
+Disallow: /graceramirez
+Disallow: /juancapower
+Disallow: /gabrielavargas
+Disallow: /lizbetquispe
+Disallow: /negociacionesgabyval
+Disallow: /anatoliazapata
+Disallow: /anataoliazapata
+Disallow: /carmengiraldo
+Disallow: /eversafefinancial
+Disallow: /heydycoach
+Disallow: /hugodam
+Disallow: /levitas
+Disallow: /puntodequiebre
+
+Sitemap: https://powerdigital.pe/sitemap.xml

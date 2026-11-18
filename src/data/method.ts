@@ -4,47 +4,44 @@ export interface MethodStep {
   summary: string;
   description: string;
   focus: string;
+  deliverableCue: string;
 }
 
 export const METHOD_STEPS: MethodStep[] = [
   {
     step: '01',
-    name: 'Claridad',
-    summary: 'Diagnóstico profundo y comprensión humana',
+    name: 'Descubrir',
+    summary: 'Comprender negocio, audiencia, desafío y oportunidades.',
     description:
-      'Antes de proponer herramientas o anuncios, analizamos a fondo tu modelo, la psicología de tu cliente ideal, tu diferenciador real y el punto exacto donde te encuentras.',
-    focus: 'Entendimiento del negocio y del cliente',
+      'Antes de diseñar una pieza o activar una pauta, entendemos tu modelo comercial, quién toma las decisiones de compra y dónde están los verdaderos cuellos de botella.',
+    focus: 'Diagnóstico y claridad estratégica',
+    deliverableCue: 'Auditoría digital · Mapa de oportunidad',
   },
   {
     step: '02',
-    name: 'Estrategia',
-    summary: 'Plan de crecimiento y arquitectura de canales',
+    name: 'Diseñar',
+    summary: 'Construir una estrategia y una dirección creativa.',
     description:
-      'Definimos la ruta crítica: qué canales activar, qué propuesta de valor proyectar, qué mensaje persuasivo transmitir y qué recursos priorizar para evitar la dispersión.',
-    focus: 'Ruta clara sin improvisación',
+      'Traducimos los hallazgos en posicionamiento, arquitectura visual, narrativa persuasiva y un plan de acción priorizado según la etapa real de tu marca.',
+    focus: 'Concepto, sistema e identidad',
+    deliverableCue: 'Concepto de marca · Hoja de ruta',
   },
   {
     step: '03',
-    name: 'Sistema',
-    summary: 'Infraestructura, IA y activos digitales',
+    name: 'Activar',
+    summary: 'Producir, desarrollar e implementar.',
     description:
-      'Construimos los pilares técnicos: tu web o landing page de conversión, flujos automáticos de seguimiento, herramientas de IA y piezas de contenido de alto estándar visual.',
-    focus: 'Ecosistema digital conectado y robusto',
+      'Llevamos la estrategia a la realidad: experiencias web, contenido de alto estándar, flujos automatizados con inteligencia artificial y canales de captación.',
+    focus: 'Ejecución técnica y creativa',
+    deliverableCue: 'Web · Contenido · IA y automatización',
   },
   {
     step: '04',
-    name: 'Acción',
-    summary: 'Ejecución coordinada y lanzamiento',
+    name: 'Evolucionar',
+    summary: 'Analizar, ajustar y mejorar cuando el alcance lo contemple.',
     description:
-      'Activamos las campañas de adquisición (Meta Ads / TikTok Ads), publicamos la narrativa de marca y ponemos en marcha los mecanismos de captación y nutrición.',
-    focus: 'Presencia activa y atracción de leads',
-  },
-  {
-    step: '05',
-    name: 'Crecimiento',
-    summary: 'Acompañamiento, optimización y escala',
-    description:
-      'Como tu Growth Partner, evaluamos el desempeño continuo, refinamos los puntos de fricción y expandimos los canales que generan resultados reales y sostenibles.',
-    focus: 'Consistencia y escala a largo plazo',
+      'Evaluamos qué responde mejor en el mercado real, refinamos mensajes o activos digitales y acompañamos los siguientes pasos con criterio estratégico.',
+    focus: 'Iteración y crecimiento continuo',
+    deliverableCue: 'Optimización · Acompañamiento Growth',
   },
 ];

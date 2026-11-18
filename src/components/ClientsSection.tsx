@@ -1,148 +1,65 @@
 import React from 'react';
-import { CLIENT_LOGOS } from '../data/clients';
+import { CLIENT_LOGOS, ClientLogo } from '../data/clients';
+
+const LogoItem: React.FC<{ client: ClientLogo }> = ({ client }) => (
+  <div
+    className="mx-6 sm:mx-10 flex items-center justify-center shrink-0 group py-2"
+    title={`${client.name} · ${client.sector}`}
+  >
+    <img
+      src={client.logoUrl}
+      alt={client.name}
+      loading="lazy"
+      referrerPolicy="no-referrer"
+      className="h-9 sm:h-11 md:h-12 w-auto max-w-[155px] sm:max-w-[185px] object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+    />
+  </div>
+);
 
 export const ClientsSection: React.FC = () => {
-  // Balanced rows for dual harmonious marquee
-  const row1 = CLIENT_LOGOS.slice(0, 11);
-  const row2 = CLIENT_LOGOS.slice(11);
+  const lightLogos = CLIENT_LOGOS.filter((c) => c.theme === 'light');
+  const darkLogos = CLIENT_LOGOS.filter((c) => c.theme === 'dark');
+
+  const trackLight = [...lightLogos, ...lightLogos];
+  const trackDark = [...darkLogos, ...darkLogos];
 
   return (
-    <section id="marcas" className="py-24 md:py-32 bg-[#FFFFFF] border-y border-[#0B0D17]/8 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Curated Editorial Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#4361EE] mb-3">
-            <span>Alianzas & Trayectoria</span>
-            <span aria-hidden="true" className="text-[#DEB660]">·</span>
-            <span className="text-[#0B0D17]/50">Selección Curada</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0B0D17] tracking-tight leading-[1.12] mb-4 text-balance">
-            Marcas que confían en Power Digital
-          </h2>
-
-          <p className="text-base sm:text-lg text-[#0B0D17]/70 font-normal leading-relaxed max-w-2xl mx-auto text-pretty">
-            Una muestra selecta de empresas consolidadas, marcas personales y proyectos con visión
-            que han transformado su presencia digital con nuestra metodología.
+    <section
+      id="marcas"
+      aria-label="Marcas que han confiado en Power Digital"
+      className="border-t border-[#0B0D17]/10 bg-[#FFFFFF] overflow-hidden"
+    >
+      {/* Editorial Intro Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <p className="font-mono-code text-[11px] uppercase tracking-[0.2em] text-[#4361EE] font-medium mb-3">
+            Trayectoria compartida
           </p>
+          <h2 className="text-editorial-title font-bold text-[#0B0D17]">
+            Marcas y organizaciones que confían en nuestro criterio
+          </h2>
         </div>
+        <p className="text-sm sm:text-base text-[#0B0D17]/65 max-w-md leading-relaxed">
+          Empresas, firmas profesionales y marcas personales de sectores diversos que han construido
+          activos digitales y estrategia junto a Power Digital.
+        </p>
+      </div>
 
-        {/* Exclusive Curated Marquee with Adaptive Contrast per Brand */}
-        <div className="relative">
-          {/* Subtle gradient scrim masks for soft edge transitions */}
-          <div
-            aria-hidden="true"
-            className="absolute left-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-r from-white via-white/85 to-transparent z-10 pointer-events-none"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute right-0 top-0 bottom-0 w-24 sm:w-44 bg-gradient-to-l from-white via-white/85 to-transparent z-10 pointer-events-none"
-          />
-
-          {/* Row 1: Smooth Glide */}
-          <div className="overflow-hidden py-3">
-            <div className="animate-marquee flex gap-6 sm:gap-7 items-center">
-              {[...row1, ...row1].map((client, index) => {
-                const isDark = client.theme === 'dark';
-                return (
-                  <div
-                    key={`r1-${client.id}-${index}`}
-                    className={`h-28 w-60 sm:w-68 shrink-0 rounded-2xl p-4 sm:p-5 flex flex-col justify-between items-center transition-all duration-300 border ${
-                      isDark
-                        ? 'bg-[#0B0D17] border-[#0B0D17] shadow-xs hover:border-[#DEB660]/50'
-                        : 'bg-white border-[#0B0D17]/8 shadow-xs hover:border-[#4361EE]/30 hover:shadow-md'
-                    }`}
-                  >
-                    {/* Centered logo slot with strict scaling */}
-                    <div className="h-14 w-full flex items-center justify-center">
-                      <img
-                        src={client.logoUrl}
-                        alt={`Logo de ${client.name}`}
-                        className="max-h-11 max-w-[160px] w-auto object-contain transition-transform duration-300 hover:scale-105"
-                        loading="lazy"
-                        referrerPolicy="no-referrer"
-                      />
-                    </div>
-
-                    {/* Discrete sector badge */}
-                    <div className="w-full flex items-center justify-between pt-2 border-t border-current/10">
-                      <span
-                        className={`text-[10px] font-semibold tracking-wider uppercase truncate ${
-                          isDark ? 'text-white/60' : 'text-[#0B0D17]/55'
-                        }`}
-                      >
-                        {client.sector}
-                      </span>
-                      <span
-                        className={`text-[9px] font-mono-code ${
-                          isDark ? 'text-[#DEB660]' : 'text-[#4361EE]'
-                        }`}
-                      >
-                        PARTNER
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Row 2: Reverse Smooth Glide */}
-          <div className="overflow-hidden py-3 mt-3">
-            <div className="animate-marquee-reverse flex gap-6 sm:gap-7 items-center">
-              {[...row2, ...row2].map((client, index) => {
-                const isDark = client.theme === 'dark';
-                return (
-                  <div
-                    key={`r2-${client.id}-${index}`}
-                    className={`h-28 w-60 sm:w-68 shrink-0 rounded-2xl p-4 sm:p-5 flex flex-col justify-between items-center transition-all duration-300 border ${
-                      isDark
-                        ? 'bg-[#0B0D17] border-[#0B0D17] shadow-xs hover:border-[#DEB660]/50'
-                        : 'bg-white border-[#0B0D17]/8 shadow-xs hover:border-[#4361EE]/30 hover:shadow-md'
-                    }`}
-                  >
-                    {/* Centered logo slot with strict scaling */}
-                    <div className="h-14 w-full flex items-center justify-center">
-                      <img
-                        src={client.logoUrl}
-                        alt={`Logo de ${client.name}`}
-                        className="max-h-11 max-w-[160px] w-auto object-contain transition-transform duration-300 hover:scale-105"
-                        loading="lazy"
-                        referrerPolicy="no-referrer"
-                      />
-                    </div>
-
-                    {/* Discrete sector badge */}
-                    <div className="w-full flex items-center justify-between pt-2 border-t border-current/10">
-                      <span
-                        className={`text-[10px] font-semibold tracking-wider uppercase truncate ${
-                          isDark ? 'text-white/60' : 'text-[#0B0D17]/55'
-                        }`}
-                      >
-                        {client.sector}
-                      </span>
-                      <span
-                        className={`text-[9px] font-mono-code ${
-                          isDark ? 'text-[#DEB660]' : 'text-[#4361EE]'
-                        }`}
-                      >
-                        PARTNER
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+      {/* Borderless Editorial Logo Band 1 (Light Surface for Dark-Ink Logos) */}
+      <div className="relative py-8 border-t border-[#0B0D17]/8 bg-[#FFFFFF] overflow-hidden">
+        <div className="animate-marquee items-center">
+          {trackLight.map((client, idx) => (
+            <LogoItem key={`light-${client.id}-${idx}`} client={client} />
+          ))}
         </div>
+      </div>
 
-        {/* Quiet, Premium Trust Markers */}
-        <div className="mt-14 pt-8 border-t border-[#0B0D17]/6 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-[#0B0D17]/60">
-          <span>Sectores: Finanzas, Tecnología, Inversión, Coaching y Retail</span>
-          <span aria-hidden="true" className="text-[#DEB660]">·</span>
-          <span>Estrategias adaptadas al modelo de negocio</span>
-          <span aria-hidden="true" className="text-[#DEB660]">·</span>
-          <span>Acompañamiento a largo plazo</span>
+      {/* Borderless Editorial Logo Band 2 (Obsidian Contrast Band for White/Gold Logos) */}
+      <div className="relative py-8 bg-[#0B0D17] overflow-hidden">
+        <div className="animate-marquee-reverse items-center">
+          {trackDark.map((client, idx) => (
+            <LogoItem key={`dark-${client.id}-${idx}`} client={client} />
+          ))}
         </div>
       </div>
     </section>

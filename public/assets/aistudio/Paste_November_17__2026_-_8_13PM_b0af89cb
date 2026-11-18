@@ -1,0 +1,1043 @@
+# MASTER PROMPT: POWER DIGITAL 3.0
+## Premium Growth & Creative Studio | Full Website Redesign
+
+### 1. TU ROL Y MISIÓN
+
+Actúa simultáneamente como:
+
+- Creative Director de una agencia digital internacional.
+- Senior UI/UX Designer especializado en websites Awwwards-level.
+- Frontend Architect experto en React, TypeScript y Tailwind CSS.
+- Motion Designer experto en animaciones web e interacciones.
+- Growth Strategist enfocado en posicionamiento y conversión.
+- Especialista en rendimiento, accesibilidad y SEO técnico.
+
+Tu misión es realizar un **REDISEÑO INTEGRAL, VISUAL, ESTRUCTURAL Y FUNCIONAL** de la web de POWER DIGITAL.
+
+No debes limitarte a cambiar colores, tipografías o bordes.
+
+Debes repensar la experiencia completa como si una agencia creativa premium estuviera desarrollando su propia web insignia.
+
+**OBJETIVO PRINCIPAL:**
+
+Transformar powerdigital.pe en una experiencia digital moderna, memorable, elegante, interactiva y orientada a conversión, con un estándar visual comparable al de estudios creativos y Growth Partners de primer nivel.
+
+La percepción deseada es:
+
+"Esta agencia comprende de estrategia, diseño, tecnología e inteligencia artificial. Sabe construir marcas que destacan."
+
+Trabaja de manera autónoma. No te detengas al terminar una auditoría o una propuesta conceptual. Continúa hasta producir una implementación funcional y una vista previa navegable.
+
+---
+
+### 2. MATERIAL DE REFERENCIA OBLIGATORIO
+
+**WEB ACTUAL**
+
+https://powerdigital.pe/
+
+Analiza su estructura, contenido, servicios, navegación, identidad visual y funcionalidades existentes.
+
+Toma también como referencia la captura completa proporcionada por el usuario.
+
+**REFERENCIA A: INOO**
+
+https://inoo.pe/
+
+Estudia especialmente:
+
+- Jerarquías tipográficas y comerciales.
+- Composición y organización de servicios.
+- Distribución del contenido.
+- Uso de casos de éxito.
+- Narrativa orientada a resultados.
+- Elementos de credibilidad.
+- Formas de dirigir al usuario hacia una consulta.
+
+**REFERENCIA B: MALCOLM**
+
+https://agenciamalcolm.pe/
+
+Estudia especialmente:
+
+- Dirección de arte.
+- Posicionamiento como Growth Partner.
+- Composiciones editoriales.
+- Distribución de imágenes y texto.
+- Portafolio visual.
+- Identidad de agencia.
+- Transiciones y animaciones perceptibles en su experiencia real.
+
+**REFERENCIA C: 21ST.DEV**
+
+https://21st.dev/
+
+Explora la biblioteca de componentes para encontrar patrones visuales apropiados:
+
+- Animated Heroes.
+- Typography Animations.
+- Marquees.
+- Creative Bento Layouts.
+- Scroll Animations.
+- Portfolio Showcases.
+- Interactive Cards.
+- Navigation Components.
+- Motion Footers.
+- Image Reveals.
+
+Reutiliza patrones técnicos compatibles cuando sea conveniente, pero adapta completamente el diseño a Power Digital.
+
+**REGLA DE ORIGINALIDAD:**
+
+No clones ninguna de estas webs. No copies su código propietario, identidad gráfica, textos, fotografías ni elementos distintivos.
+
+Analiza qué funciona y produce una solución original.
+
+Si no puedes acceder visualmente a alguna referencia, utiliza el material disponible y documenta esa limitación. No afirmes haber inspeccionado animaciones que no pudiste visualizar.
+
+---
+
+### 3. IDENTIDAD INNEGOCIABLE DE POWER DIGITAL
+
+**MARCA:** POWER DIGITAL
+
+**ESLOGAN OFICIAL:**
+Impulsamos marcas con propósito.
+
+**PILARES OFICIALES:**
+Estrategia · Propósito · IA
+
+Estos elementos deben conservarse exactamente.
+
+Power Digital no es exclusivamente una agencia de anuncios o redes sociales.
+
+Es una empresa que integra estrategia, identidad, comunicación, producción creativa, experiencias web y tecnologías de inteligencia artificial para impulsar marcas personales y negocios.
+
+**PROPUESTA DE VALOR:**
+
+Acompañamos marcas en su evolución digital, conectando estrategia de negocio, creatividad y tecnología.
+
+**PERSONALIDAD:**
+
+- Visionaria, pero aterrizada.
+- Creativa, pero estratégica.
+- Tecnológica, pero humana.
+- Premium, pero accesible.
+- Segura, pero sin arrogancia.
+- Minimalista, pero memorable.
+- Moderna, sin depender de modas pasajeras.
+
+**DIFERENCIACIÓN REAL:**
+
+Power Digital nace de una combinación de ingeniería de sistemas, dirección estratégica, creatividad, comunicación e inteligencia artificial.
+
+No buscamos producir contenido por producir.
+
+Buscamos que cada entregable responda a un objetivo y contribuya al crecimiento de la marca.
+
+**EVITAR:**
+
+- Promesas de resultados garantizados.
+- Falsos indicadores comerciales.
+- Testimonios inventados.
+- Certificaciones inexistentes.
+- Equipo ficticio o fotografías de personas presentadas como empleados.
+- Afirmar que somos partners certificados de plataformas sin evidencia.
+- Posicionarnos como una gigantesca agencia multinacional.
+- Ofrecer servicios avanzados sin comprobar que realmente forman parte de nuestra oferta.
+
+Queremos percepción premium basada en diseño, capacidad y credibilidad, no en apariencias falsas.
+
+---
+
+### 4. AUDITORÍA INICIAL DEL PROYECTO
+
+Antes de editar, inspecciona exhaustivamente el proyecto disponible.
+
+Identifica:
+
+1. Framework, estructura de carpetas y arquitectura.
+2. Componentes reutilizables.
+3. Sistema visual existente.
+4. Logo y variantes.
+5. Tipografías y paleta oficial.
+6. Dependencias instaladas.
+7. Imágenes, fotografías, videos y recursos multimedia.
+8. Servicios y textos comerciales.
+9. Rutas y navegación.
+10. Formularios, WhatsApp y datos de contacto.
+11. Integraciones y analítica existentes.
+12. SEO, metadatos y elementos legales.
+13. Responsive design.
+14. Fallas de accesibilidad o rendimiento.
+
+**MUY IMPORTANTE:**
+
+El proyecto existente es la fuente de verdad para la identidad y las funcionalidades.
+
+No reemplaces logos oficiales con recreaciones aproximadas.
+
+No elimines contenido útil por querer conseguir minimalismo.
+
+No rompas formularios, integraciones, navegación ni enlaces funcionales.
+
+Si tienes acceso al código original, trabaja sobre él y reutiliza la infraestructura.
+
+Si estás en un proyecto nuevo de Google AI Studio sin acceso al repositorio, construye una versión completa, modular y exportable, preparada para integrarse posteriormente a la web existente.
+
+No modifiques producción ni publiques cambios sin autorización.
+
+---
+
+### 5. NUEVA DIRECCIÓN DE ARTE
+
+**ESTILO GENERAL:**
+
+Premium Editorial Digital Studio.
+
+Combinar el refinamiento de una consultora estratégica, la audacia de un estudio creativo y el dinamismo de una empresa tecnológica.
+
+La web debe sentirse diseñada a medida, no ensamblada con componentes genéricos.
+
+**ESTÉTICA:**
+
+- Tipografías protagonistas, grandes y expresivas.
+- Espacios negativos deliberados.
+- Composiciones asimétricas.
+- Uso estratégico de imágenes y videos.
+- Bloques editoriales de distintas proporciones.
+- Contrastes entre secciones claras y oscuras.
+- Detalles visuales tecnológicos.
+- Separadores y elementos de interfaz refinados.
+- Interacciones sutiles que respondan al usuario.
+- Márgenes consistentes y alineación precisa.
+- Jerarquía visual extremadamente clara.
+
+**PALETA:**
+
+Primero extrae y respeta los colores reales de la marca desde su identidad y CSS existente.
+
+Construye un sistema de tokens semánticos:
+
+- Brand Primary.
+- Brand Secondary.
+- Accent.
+- Background Primary.
+- Background Contrast.
+- Surface.
+- Foreground.
+- Muted.
+- Border.
+
+La base visual debe trabajar principalmente con fondos claros de aspecto editorial, tipografía oscura y acentos de la marca.
+
+Intercala algunas secciones oscuras de alto impacto.
+
+Utiliza el azul de marca como elemento de activación, no como color decorativo omnipresente.
+
+Si existe un acento dorado en la identidad, úsalo con moderación y sin aspecto metálico exagerado.
+
+**TIPOGRAFÍA:**
+
+Prioriza la tipografía corporativa existente cuando sea adecuada.
+
+Si requiere renovación, evalúa fuentes contemporáneas como Plus Jakarta Sans, Manrope, Inter o Space Grotesk, con un máximo de dos familias.
+
+Utiliza tipografía variable cuando aporte valor.
+
+Crear una escala fluida con CSS clamp() para títulos y párrafos.
+
+**REGLA FUNDAMENTAL:**
+
+No usar la clásica estructura repetitiva de:
+
+Título + subtítulo + tres tarjetas + botón.
+
+La página debe tener ritmo editorial, cambios de composición y momentos visuales diferenciados.
+
+---
+
+### 6. NUEVA ARQUITECTURA DE LA HOME
+
+Rediseña por completo el recorrido comercial.
+
+#### SECCIÓN 01: NAVBAR PREMIUM
+
+Diseña una navegación limpia, flotante o sticky.
+
+Debe incluir:
+
+- Logo original Power Digital.
+- Servicios.
+- Proyectos.
+- Nuestro enfoque.
+- Nosotros.
+- Contacto.
+- CTA destacado: "Hablemos".
+
+Características:
+
+- Fondo adaptable al scroll.
+- Transiciones de estado discretas.
+- Hover elegante.
+- Indicador de navegación activa.
+- Menú móvil premium realmente funcional.
+- Correcta navegación por teclado.
+- Sin exceso de elementos.
+
+#### SECCIÓN 02: HERO CINEMÁTICO
+
+Este será el primer gran WOW MOMENT.
+
+Crear una sección hero de alto impacto visual, idealmente cercana a la altura de pantalla en desktop.
+
+**TITULAR OFICIAL:**
+
+Impulsamos marcas con propósito.
+
+**IDENTIFICADOR:**
+
+Estrategia · Propósito · IA
+
+**TEXTO DE APOYO SUGERIDO:**
+
+"Unimos estrategia, creatividad y tecnología para transformar ideas en marcas que conectan, evolucionan y crecen."
+
+**CTA PRINCIPAL:**
+Hablemos de tu marca
+
+**CTA SECUNDARIO:**
+Explorar proyectos
+
+**COMPOSICIÓN:**
+
+Diseña una jerarquía tipográfica monumental, con grandes titulares y distribución editorial.
+
+Incluye una pieza visual protagonista basada en el símbolo original de Power Digital o una interpretación abstracta de su concepto de conexión, evolución y crecimiento.
+
+Si el símbolo del infinito forma parte de los recursos reales de la marca, puede utilizarse como inspiración para una composición cinética original.
+
+Posibles tratamientos:
+
+- Capas visuales tridimensionales sutiles.
+- Partículas organizadas.
+- Líneas conectadas y movimiento orbital.
+- Materiales digitales con iluminación elegante.
+- Motion graphics ligeros.
+- Reacción discreta al cursor.
+
+No convertir la animación en una experiencia pesada o excesivamente futurista.
+
+El protagonista debe seguir siendo el mensaje.
+
+**ANIMACIÓN DE ENTRADA:**
+
+Secuencia coordinada:
+
+1. Aparece el identificador de marca.
+2. El titular se revela mediante máscara.
+3. Se incorpora el elemento visual.
+4. Entran los CTA.
+5. Se activa una indicación sutil de scroll.
+
+Duración breve. Sensación fluida y profesional.
+
+#### SECCIÓN 03: SOCIAL PROOF
+
+Incorporar una franja premium de marcas y clientes reales.
+
+Utilizar únicamente logos existentes y autorizados.
+
+Diseñar un logo wall editorial, evitando cuadrados o tarjetas innecesarias.
+
+Opcionalmente agregar un marquee horizontal suave, pausado al interactuar.
+
+No inventar clientes, relaciones comerciales ni resultados.
+
+#### SECCIÓN 04: MANIFIESTO DE MARCA
+
+Construir una sección tipográfica contundente.
+
+Propuesta de titular:
+
+"No hacemos piezas sueltas.
+Construimos marcas con dirección."
+
+Texto breve que explique que branding, contenido, web e IA forman parte de una estrategia coherente.
+
+Diseño:
+
+- Tipografía oversized.
+- Composición asimétrica.
+- Mucho aire.
+- Sección en fondo de contraste.
+- Transición cinematográfica desde la sección anterior.
+
+Incluir una animación de énfasis por palabras al entrar en viewport.
+
+No animar indefinidamente todo el texto.
+
+#### SECCIÓN 05: PROYECTOS SELECCIONADOS
+
+Este debe ser el segundo gran WOW MOMENT.
+
+Una agencia creativa tiene que demostrar visualmente lo que hace.
+
+Crear una sección protagonista:
+
+**Título:**
+Ideas que toman forma.
+
+**Subtítulo:**
+Proyectos donde la estrategia se convierte en experiencias, contenido y marcas.
+
+Construir un portafolio visual de gran formato.
+
+Evitar tarjetas pequeñas y repetitivas.
+
+Utilizar una composición editorial con:
+
+- Imágenes amplias.
+- Videos breves si existen.
+- Mockups reales.
+- Capturas de sitios desarrollados.
+- Identidades visuales.
+- Motion thumbnails.
+- Titulares por proyecto.
+- Categorías del trabajo realizado.
+- Enlaces a proyectos o casos documentados.
+
+La visualización puede alternar:
+
+- Proyectos de ancho completo.
+- Bloques de dos columnas asimétricas.
+- Scroll horizontal en desktop si mejora la experiencia.
+- Galería responsive en mobile.
+- Hover con zoom o desplazamiento muy sutil.
+- Transiciones de imagen y texto sincronizadas.
+
+**POTENCIALES PROYECTOS A REVISAR EN ASSETS:**
+
+Serna Estate, Warmi Kapital, RAÍZ, Hugo Dam, LEVITAS y otros clientes del portafolio existente.
+
+Usar exclusivamente trabajos reales, con material disponible y autorización de publicación.
+
+No presentar proyectos en desarrollo como finalizados.
+
+Si no hay material suficiente, construir el componente y utilizar placeholders explícitamente identificados para reemplazo, sin fabricar falsos casos de éxito.
+
+Crear una estructura de datos fácilmente editable para proyectos.
+
+#### SECCIÓN 06: ECOSISTEMA DE SOLUCIONES
+
+Propuesta de título:
+
+"Una estrategia.
+Múltiples formas de crecer."
+
+En lugar de cuatro cajas repletas de texto, construir un sistema de módulos visuales con distintas proporciones.
+
+Categorías orientativas, sujetas a servicios reales:
+
+**01. Estrategia y marca**
+
+Identidad visual, posicionamiento, concepto y narrativa.
+
+**02. Contenido y producción creativa**
+
+Diseño, contenido para redes, producción audiovisual y videos potenciados por IA.
+
+**03. Web y experiencia digital**
+
+Landing pages, sitios corporativos, experiencias web y activos digitales.
+
+**04. Inteligencia artificial y automatización**
+
+Soluciones creativas, integración de herramientas y automatizaciones dentro de las capacidades comprobadas de Power Digital.
+
+**05. Growth y acompañamiento estratégico**
+
+Planeamiento, optimización y acompañamiento, según la oferta vigente.
+
+**DISEÑO:**
+
+Bento Grid editorial, no SaaS dashboard.
+
+Cada módulo debe tener:
+
+- Título fuerte.
+- Descripción de una o dos frases.
+- Recurso visual representativo.
+- Interacción de hover.
+- CTA contextual si existe una página de servicio.
+
+Variar tamaños y relaciones visuales.
+
+No llenar cada tarjeta con listas interminables.
+
+Cada servicio debe transmitir su valor en pocos segundos.
+
+#### SECCIÓN 07: NUESTRO ENFOQUE
+
+Propuesta de título:
+
+"Primero entendemos.
+Después creamos.
+Siempre evolucionamos."
+
+Crear una narrativa visual del proceso.
+
+Fases sugeridas:
+
+01 DESCUBRIR
+Comprender negocio, audiencia, desafío y oportunidades.
+
+02 DISEÑAR
+Construir una estrategia y una dirección creativa.
+
+03 ACTIVAR
+Producir, desarrollar e implementar.
+
+04 EVOLUCIONAR
+Analizar, ajustar y mejorar cuando el alcance del servicio lo contemple.
+
+**INTERACCIÓN:**
+
+Diseña una experiencia de scroll guiado, preferentemente con una columna sticky y etapas dinámicas.
+
+Al avanzar:
+
+- Cambia el número.
+- Se actualiza el texto.
+- Aparece el recurso visual correspondiente.
+- La transición ocurre de forma coordinada.
+
+En dispositivos móviles, convertirlo a una secuencia vertical natural, sin obligar al usuario a realizar scroll artificial.
+
+#### SECCIÓN 08: DIFERENCIAL HUMANO Y TECNOLÓGICO
+
+Incorporar una sección editorial para explicar quién impulsa Power Digital y qué diferencia su enfoque.
+
+**Idea de titular:**
+
+"Visión estratégica.
+Mentalidad tecnológica.
+Creatividad con propósito."
+
+Presentar a Juan Carlos Cabrera Díaz como fundador, usando información verificable y fotografías originales.
+
+Destacar de forma equilibrada:
+
+- Formación en Ingeniería de Sistemas.
+- Experiencia en tecnología y dirección.
+- Visión estratégica.
+- Integración de herramientas de IA.
+- Desarrollo de soluciones para marcas.
+
+No convertir esta sección en una página personal ni enfocarla en coaching.
+
+Power Digital es la protagonista; el fundador es una garantía de dirección y criterio.
+
+**COMPOSICIÓN:**
+
+- Fotografía editorial de calidad.
+- Contenido breve.
+- Buen uso del espacio.
+- Una frase destacada.
+- Enlace a "Nosotros".
+
+No inventar otros integrantes ni presentar colaboradores externos como empleados permanentes.
+
+#### SECCIÓN 09: EVIDENCIA Y CONFIANZA
+
+Construir credibilidad mediante elementos verificables:
+
+- Trabajos realizados.
+- Experiencias de clientes reales.
+- Entregables visibles.
+- Proceso de trabajo.
+- Testimonios autorizados.
+- Resultados medidos, si hay datos disponibles.
+
+Si se muestran métricas, deben proceder de fuentes reales.
+
+No utilizar contadores ficticios del tipo "+500 empresas" o "300% de crecimiento".
+
+Es preferible una muestra visual auténtica que una estadística espectacular inventada.
+
+#### SECCIÓN 10: CONVERSIÓN
+
+Crear una sección final de alto impacto.
+
+**TITULAR SUGERIDO:**
+
+"Tu siguiente etapa comienza con una conversación."
+
+**TEXTO:**
+
+"Cuéntanos qué estás construyendo. Descubramos cómo impulsar tu marca."
+
+Incluir dos caminos claros:
+
+1. Conversación rápida por WhatsApp.
+2. Formulario para contar sobre un proyecto.
+
+Diseñar un formulario elegante:
+
+- Nombre.
+- Marca o empresa.
+- Correo.
+- Servicio de interés.
+- Breve descripción del proyecto.
+- Consentimiento de privacidad.
+
+Conserva los canales reales y las integraciones existentes.
+
+No simules el envío exitoso de un formulario sin una integración funcional.
+
+Agregar mensajes de validación, carga, éxito y error.
+
+**FOOTER:**
+
+Crear un cierre visual extraordinario, con tipografía grande, logotipo, enlaces y elementos legales.
+
+Puede incorporar una composición tipográfica monumental de "POWER DIGITAL", con tratamiento responsivo.
+
+No sacrificar legibilidad por espectacularidad.
+
+---
+
+### 7. SISTEMA DE ANIMACIONES
+
+La web debe sentirse viva.
+
+Sin embargo, no queremos un festival de efectos donde todo se mueve porque sí.
+
+Construye un sistema de movimiento coherente.
+
+**TECNOLOGÍAS RECOMENDADAS:**
+
+Para React:
+
+- Motion for React, para animaciones declarativas y componentes.
+- GSAP + ScrollTrigger, cuando se necesiten secuencias complejas o scroll controlado.
+- CSS transitions y transforms para microinteracciones simples.
+- IntersectionObserver para activación ligera.
+- Lenis únicamente si tiene un beneficio claro, es compatible y no deteriora la accesibilidad.
+
+No agregues todas las bibliotecas indiscriminadamente.
+
+Selecciona las necesarias y explica su propósito.
+
+**MOTION SYSTEM:**
+
+A. Hero cinematic reveal.
+
+B. Staggered typography.
+
+C. Scroll-triggered section reveals.
+
+D. Image masking transitions.
+
+E. Subtle parallax en recursos visuales.
+
+F. Interactive portfolio hover.
+
+G. Smooth card transformations.
+
+H. Sticky storytelling en metodología.
+
+I. Animated navigation states.
+
+J. Microinteracciones en botones.
+
+K. Logo marquee opcional.
+
+L. Transiciones sutiles entre temas claros y oscuros.
+
+**PROHIBICIONES:**
+
+- Animaciones constantes en toda la página.
+- Scroll hijacking.
+- Cursores personalizados que dificulten navegar.
+- Efectos de neón exagerados.
+- Glassmorphism en todos los componentes.
+- Gradientes decorativos sin función.
+- Texto ilegible durante transiciones.
+- Scroll horizontal accidental.
+- Animaciones que bloqueen contenido.
+- Preloaders innecesariamente largos.
+
+**PRINCIPIO:**
+
+El movimiento debe dirigir la mirada, reforzar el mensaje y comunicar calidad.
+
+El usuario no debe esperar para leer una sección.
+
+Respetar prefers-reduced-motion y ofrecer una experiencia completamente funcional con movimiento reducido.
+
+---
+
+### 8. RESPONSIVE DESIGN: MOBILE FIRST
+
+Aunque desktop sea nuestra vitrina, mobile debe tener la misma calidad de diseño.
+
+Optimizar para:
+
+- 360 px.
+- 390 px.
+- 430 px.
+- 768 px.
+- 1024 px.
+- 1440 px.
+- 1920 px.
+
+No limitarte a encoger elementos.
+
+Adaptar la composición.
+
+**MOBILE:**
+
+- Hero legible y visualmente potente.
+- Navegación accesible.
+- Tipografía fluida.
+- Portafolio táctil.
+- CTA claramente accesibles.
+- Imágenes con proporciones adecuadas.
+- Sin textos cortados.
+- Sin columnas diminutas.
+- Sin desplazamiento lateral no intencional.
+- Animaciones simplificadas.
+- Botón flotante de WhatsApp sin tapar contenido, formularios ni CTAs.
+
+No crear componentes interactivos que dependan exclusivamente de hover.
+
+---
+
+### 9. ARQUITECTURA FRONTEND
+
+Prioriza el stack y las convenciones del proyecto actual.
+
+Si se construye desde cero en un entorno React, utilizar preferentemente:
+
+- React.
+- TypeScript.
+- Tailwind CSS.
+- Componentes accesibles.
+- CSS variables para design tokens.
+- Motion for React cuando corresponda.
+
+Crear componentes separados, reutilizables y fáciles de mantener.
+
+**ESTRUCTURA ORIENTATIVA:**
+
+src/
+- components/
+  - layout/
+  - navigation/
+  - sections/
+  - portfolio/
+  - motion/
+  - ui/
+- data/
+  - projects
+  - services
+  - navigation
+  - testimonials
+- hooks/
+- styles/
+- assets/
+- pages/
+
+Adaptar la arquitectura a las necesidades reales del repositorio.
+
+No crear abstracciones innecesarias.
+
+Separar claramente contenido y presentación.
+
+El usuario debe poder agregar proyectos, modificar servicios y actualizar fotografías sin rediseñar componentes.
+
+Si 21st.dev ofrece un componente útil, verificar compatibilidad, calidad y dependencias antes de incorporarlo.
+
+No instalar paquetes desconocidos ni componentes que generen dependencias innecesarias.
+
+---
+
+### 10. ASSETS Y PRODUCCIÓN VISUAL
+
+**REGLA FUNDAMENTAL:**
+
+El portafolio debe mostrar trabajo real.
+
+Prioridad de recursos:
+
+1. Material original del proyecto.
+2. Recursos oficiales existentes.
+3. Assets autorizados alojados en Cloudinary u otra infraestructura conectada.
+4. Visuales abstractos originales para secciones conceptuales.
+5. Placeholders documentados si falta material.
+
+No utilizar fotografías falsas de clientes o resultados.
+
+Para recursos conceptuales sí puedes construir:
+
+- SVG personalizados.
+- Composiciones vectoriales.
+- Gradientes con intención.
+- Patrones geométricos.
+- Elementos cinéticos.
+- Recursos abstractos de estrategia, IA y conexión.
+
+Si generas una propuesta visual original, asegúrate de que no reproduzca recursos protegidos de las referencias.
+
+Optimizar imágenes para web.
+
+Utilizar formatos modernos cuando sea compatible, posters para videos, lazy loading y dimensiones definidas.
+
+**RESTRICCIÓN:**
+
+No insertar imágenes genéricas de personas sonrientes en oficinas como sustituto del trabajo creativo real.
+
+Queremos personalidad y autenticidad.
+
+---
+
+### 11. COPYWRITING Y TONO DE VOZ
+
+Reescribe el contenido de la home con una orientación premium.
+
+**TONO:**
+
+- Directo.
+- Seguro.
+- Claro.
+- Elegante.
+- Humano.
+- Estratégico.
+
+Evitar:
+
+- "Soluciones innovadoras que transforman tu negocio".
+- "Llevamos tu marca al siguiente nivel".
+- "Somos líderes en el mercado".
+- "Revolucionamos el mundo digital".
+- Párrafos excesivos.
+- Jerga técnica innecesaria.
+- Promesas sin evidencia.
+
+Usa frases memorables y concretas.
+
+Cada bloque debe contestar una pregunta comercial:
+
+- ¿Qué hacen?
+- ¿Para quién?
+- ¿Por qué es relevante?
+- ¿Qué han hecho?
+- ¿Por qué confiar?
+- ¿Cómo empezamos?
+
+El objetivo es reducir el esfuerzo cognitivo y aumentar la percepción de valor.
+
+Respeta absolutamente:
+
+**"Impulsamos marcas con propósito."**
+
+**"Estrategia · Propósito · IA"**
+
+Puedes utilizar otros titulares como recursos editoriales, pero nunca sustituir estos pilares oficiales.
+
+---
+
+### 12. CONVERSIÓN Y SEO
+
+El rediseño debe ser comercialmente eficaz.
+
+Consideraciones:
+
+- CTA principal consistente.
+- Enlaces funcionales.
+- Formulario conectado.
+- Mensaje predeterminado contextual para WhatsApp.
+- Jerarquía correcta de headings.
+- HTML semántico.
+- Metadatos.
+- Open Graph.
+- Canonical correcto.
+- Sitemap y robots donde corresponda.
+- Schema.org Organization o ProfessionalService con datos reales.
+- SEO local enfocado en Perú, sin añadir ciudades o direcciones inventadas.
+- Accesibilidad de formularios.
+- Estados de error comprensibles.
+- Analítica conservada si existe.
+
+No activar píxeles o sistemas de tracking no configurados ni omitir requisitos de consentimiento aplicables.
+
+No perder el posicionamiento SEO actual por modificar arbitrariamente rutas, slugs o contenido indexado.
+
+Si cambia una ruta existente, proponer su redirección.
+
+---
+
+### 13. PERFORMANCE Y CALIDAD
+
+Las animaciones deben rendir bien.
+
+Objetivos de ingeniería:
+
+- Evitar layout shifts.
+- Evitar JavaScript innecesario.
+- Lazy loading para recursos no críticos.
+- Hero optimizado.
+- Fuentes optimizadas.
+- Respeto al rendimiento móvil.
+- Limpieza de listeners y animaciones al desmontar.
+- Evitar renders repetitivos.
+- Evitar loops de animación pesados.
+- Navegación sin bloqueos.
+
+Tomar como objetivos de experiencia:
+
+- LCP igual o inferior a 2,5 segundos.
+- CLS igual o inferior a 0,1.
+- INP igual o inferior a 200 ms.
+
+Estos son objetivos, no garantías. Medir cuando el entorno lo permita y reportar resultados reales.
+
+Buscar WCAG 2.2 AA en los elementos aplicables, con especial atención a:
+
+- Contraste.
+- Focus visible.
+- Teclado.
+- Formularios.
+- Movimiento reducido.
+- Estructura semántica.
+- Controles táctiles.
+- Textos alternativos.
+
+---
+
+### 14. PROCESO DE EJECUCIÓN AUTÓNOMO
+
+Ejecuta el trabajo en las siguientes fases, sin detenerte entre ellas para solicitar permiso:
+
+**FASE A: AUDITORÍA**
+
+Inspecciona el proyecto y las referencias accesibles.
+
+Identifica los principales problemas visuales, estructurales y técnicos.
+
+**FASE B: DIRECCIÓN CREATIVA**
+
+Define:
+
+- Concepto visual.
+- Sistema tipográfico.
+- Paleta y tokens.
+- Grid.
+- Espaciado.
+- Patrones de componentes.
+- Motion system.
+- Arquitectura de la página.
+
+**FASE C: IMPLEMENTACIÓN**
+
+Construye la home completa.
+
+No te detengas después del hero.
+
+Implementa las secciones, navegación, responsive, animaciones, formularios y componentes necesarios.
+
+**FASE D: REFINAMIENTO VISUAL**
+
+Revisa la página completa y corrige:
+
+- Secciones demasiado vacías.
+- Tarjetas repetitivas.
+- Titulares débiles.
+- Espaciado inconsistente.
+- Mala proporción entre imágenes y texto.
+- Efectos visuales excesivos.
+- Transiciones bruscas.
+- Jerarquía poco clara.
+
+**FASE E: TESTING**
+
+Verifica:
+
+- Desktop.
+- Tablet.
+- Mobile.
+- Navegación.
+- Enlaces.
+- Formularios.
+- Animaciones.
+- Estados de error.
+- Rendimiento.
+- Accesibilidad básica.
+- Consola del navegador.
+
+Corrige los problemas encontrados.
+
+**FASE F: ENTREGA**
+
+Presenta una vista previa navegable y un resumen de implementación.
+
+Indica:
+
+1. Qué se rediseñó.
+2. Qué componentes se crearon.
+3. Qué animaciones se implementaron.
+4. Qué contenido real se conservó.
+5. Qué recursos faltan.
+6. Qué se pudo probar.
+7. Qué queda pendiente antes de pasar a producción.
+
+No declares que todo funciona si no lo has comprobado.
+
+---
+
+### 15. CRITERIOS DE ACEPTACIÓN
+
+No consideres finalizado el proyecto hasta que cumpla:
+
+- El hero transmite una identidad premium desde el primer segundo.
+- La home no parece una plantilla SaaS.
+- Hay variación editorial entre secciones.
+- La tipografía tiene protagonismo.
+- El portafolio es visualmente importante.
+- La sección de servicios no parece un catálogo de tarjetas iguales.
+- Hay al menos tres momentos visuales memorables: hero, proyectos y narrativa de proceso.
+- Las animaciones son elegantes y funcionales.
+- Mobile tiene una composición cuidada.
+- La marca mantiene su identidad.
+- Existen CTA claros.
+- No hay información comercial inventada.
+- No existen botones decorativos sin función.
+- La web es mantenible.
+- La experiencia conserva buen rendimiento.
+- Existe una vista previa funcional y revisable.
+
+Si algún criterio no se cumple, realiza otra iteración.
+
+---
+
+### 16. PRINCIPIO FINAL DE DIRECCIÓN CREATIVA
+
+No quiero una web simplemente bonita.
+
+Quiero una web que demuestre la misma capacidad creativa y tecnológica que Power Digital vende.
+
+Una web que combine el impacto de una agencia de diseño, la claridad de una consultora de crecimiento y el refinamiento de un estudio digital moderno.
+
+**Menos ruido.
+Más intención.
+Más identidad.
+Más experiencia.**
+
+El resultado debe ser visualmente ambicioso, técnicamente sólido y comercialmente coherente.
+
+No reduzcas el proyecto a un wireframe, una landing genérica o un cambio superficial.
+
+Toma las decisiones necesarias dentro de estas restricciones y ejecuta el rediseño completo.
+
+**COMIENZA AHORA CON LA AUDITORÍA Y CONTINÚA HASTA OBTENER UNA IMPLEMENTACIÓN FUNCIONAL.**

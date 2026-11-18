@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+:root {
+  --pd-brand-primary: #4361EE;
+  --pd-brand-primary-hover: #3451DE;
+  --pd-brand-secondary: #DEB660;
+  --pd-brand-secondary-ink: #8A6B20;
+  --pd-bg-primary: #F8F9FA;
+  --pd-bg-contrast: #0B0D17;
+  --pd-surface: #FFFFFF;
+  --pd-surface-contrast: #131624;
+  --pd-fg: #0B0D17;
+  --pd-fg-contrast: #F8F9FA;
+  --pd-muted: rgba(11, 13, 23, 0.65);
+  --pd-muted-contrast: rgba(248, 249, 250, 0.68);
+  --pd-border: rgba(11, 13, 23, 0.10);
+  --pd-border-contrast: rgba(255, 255, 255, 0.12);
+}
+
 @theme {
   --font-display: "Sora", sans-serif;
   --font-body: "Plus Jakarta Sans", sans-serif;
@@ -10,56 +27,123 @@
   --color-dark: #0B0D17;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-body);
-  background-color: #F8F9FA;
-  color: #0B0D17;
+  background-color: var(--pd-bg-primary);
+  color: var(--pd-fg);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, .font-display {
   font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 .font-mono-code {
   font-family: var(--font-mono);
 }
 
+/* Fluid editorial scale utilities */
+.text-editorial-hero {
+  font-size: clamp(2.15rem, 4.8vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.text-editorial-manifesto {
+  font-size: clamp(2.1rem, 5.2vw, 4.75rem);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+}
+
+.text-editorial-title {
+  font-size: clamp(1.85rem, 3.8vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.text-editorial-lead {
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  line-height: 1.6;
+}
+
+/* Accessible focus outlines */
+:focus-visible {
+  outline: 2px solid var(--pd-brand-primary);
+  outline-offset: 3px;
+}
+
+/* Marquee system */
 @keyframes marquee {
   0% {
-    transform: translateX(0%);
+    transform: translate3d(0%, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 @keyframes marquee-reverse {
   0% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
   100% {
-    transform: translateX(0%);
+    transform: translate3d(0%, 0, 0);
   }
 }
 
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 42s linear infinite;
+  will-change: transform;
+  animation: marquee 48s linear infinite;
 }
 
-.animate-marquee:hover {
+.animate-marquee:hover,
+.animate-marquee:focus-within {
   animation-play-state: paused;
 }
 
 .animate-marquee-reverse {
   display: flex;
   width: max-content;
-  animation: marquee-reverse 46s linear infinite;
+  will-change: transform;
+  animation: marquee-reverse 54s linear infinite;
 }
 
-.animate-marquee-reverse:hover {
+.animate-marquee-reverse:hover,
+.animate-marquee-reverse:focus-within {
   animation-play-state: paused;
 }
 
+/* Scrollbar hiding for horizontal touch rail if used */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Menu, X, ArrowUpRight, BookOpen } from 'lucide-react';
 import { WhatsAppIcon } from './icons/WhatsAppIcon';
 
 interface NavbarProps {
@@ -7,168 +7,214 @@ interface NavbarProps {
   onNavigateToServices?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenContact, onNavigateToServices }) => {
+const NAV_ITEMS = [
+  { id: 'servicios', label: 'Servicios', href: '#servicios' },
+  { id: 'proyectos', label: 'Proyectos', href: '#proyectos' },
+  { id: 'enfoque', label: 'Nuestro enfoque', href: '#enfoque' },
+  { id: 'nosotros', label: 'Nosotros', href: '#nosotros' },
+  { id: 'contacto', label: 'Contacto', href: '#contacto' },
+];
+
+export const Navbar: React.FC<NavbarProps> = ({
+  onOpenContact,
+  onNavigateToServices,
+}) => {
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 28);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Inicio', href: '#inicio' },
-    { name: 'Servicios', href: '#servicios' },
-    { name: 'Catálogo', href: '/servicios', isSpecial: true },
-    { name: 'Método', href: '#metodo' },
-    { name: 'Marcas', href: '#marcas' },
-    { name: 'Fundador', href: '#fundador' },
-    { name: 'Contacto', href: '#contacto' },
-  ];
+  useEffect(() => {
+    const sections = NAV_ITEMS.map((item) => document.getElementById(item.id)).filter(
+      Boolean
+    ) as HTMLElement[];
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible.length > 0) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      { rootMargin: '-25% 0px -55% 0px', threshold: [0.1, 0.3, 0.6] }
+    );
+
+    sections.forEach((sec) => observer.observe(sec));
+    return () => observer.disconnect();
+  }, []);
+
+  const handleEscape = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      setMobileMenuOpen(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [mobileMenuOpen, handleEscape]);
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      const target = document.getElementById(href.slice(1));
+      if (target) {
+        e.preventDefault();
+        setMobileMenuOpen(false);
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#F8F9FA]/90 backdrop-blur-md border-b border-[#0B0D17]/10 py-3 shadow-xs'
+          ? 'bg-[#F8F9FA]/92 backdrop-blur-md border-b border-[#0B0D17]/10 py-3'
           : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Zone 1: Logo horizontal oficial */}
+        <div className="flex items-center justify-between gap-8">
+          {/* Zone 1: Brand Logo */}
           <a
             href="#inicio"
-            className="flex items-center group transition-transform active:scale-98"
-            aria-label="Power Digital - Inicio"
+            onClick={(e) => handleLinkClick(e, '#inicio')}
+            className="flex items-center shrink-0 group transition-opacity hover:opacity-90"
+            aria-label="Power Digital - Volver al inicio"
           >
             <img
               src="https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1790715607/PowerDigital_LogoHorizontal_Transparente_yfoawp.png"
-              alt="Power Digital Logo"
-              className="h-9 sm:h-10 w-auto object-contain transition-opacity group-hover:opacity-90"
+              alt="Power Digital"
+              className="h-8 sm:h-9 w-auto object-contain"
               referrerPolicy="no-referrer"
             />
           </a>
 
-          {/* Zone 2: Navigation Links */}
+          {/* Zone 2: Primary Navigation Links */}
           <nav
             aria-label="Navegación principal"
-            className="hidden md:flex items-center gap-7 text-[15px] font-medium text-[#0B0D17]/75"
+            className="hidden md:flex items-center gap-7 lg:gap-8 text-[14px] font-medium text-[#0B0D17]/75"
           >
-            {navLinks.map((link) => {
-              if (link.href === '/servicios') {
-                return (
-                  <a
-                    key={link.name}
-                    href="/servicios"
-                    onClick={(e) => {
-                      if (onNavigateToServices) {
-                        e.preventDefault();
-                        onNavigateToServices();
-                      }
-                    }}
-                    className="inline-flex items-center gap-1.5 text-[#4361EE] font-bold hover:text-[#3451DE] transition-colors relative py-1"
-                  >
-                    <span>{link.name}</span>
-                    <span className="text-[10px] font-mono-code font-bold uppercase tracking-wider bg-[#4361EE]/10 text-[#4361EE] px-1.5 py-0.5 rounded-md">
-                      Interactivo
-                    </span>
-                  </a>
-                );
-              }
+            {NAV_ITEMS.map((item) => {
+              const isActive = activeSection === item.id;
               return (
                 <a
-                  key={link.name}
-                  href={link.href}
-                  className="hover:text-[#4361EE] transition-colors relative py-1 hover:underline underline-offset-8 decoration-2 decoration-[#4361EE]"
+                  key={item.id}
+                  href={item.href}
+                  onClick={(e) => handleLinkClick(e, item.href)}
+                  aria-current={isActive ? 'location' : undefined}
+                  className={`relative py-1 whitespace-nowrap transition-colors duration-200 ${
+                    isActive
+                      ? 'text-[#0B0D17] font-semibold'
+                      : 'text-[#0B0D17]/70 hover:text-[#0B0D17]'
+                  }`}
                 >
-                  {link.name}
+                  <span>{item.label}</span>
+                  <span
+                    aria-hidden="true"
+                    className={`absolute left-0 right-0 -bottom-0.5 h-[1.5px] bg-[#4361EE] transition-transform duration-200 origin-left ${
+                      isActive ? 'scale-x-100' : 'scale-x-0'
+                    }`}
+                  />
                 </a>
               );
             })}
           </nav>
 
-          {/* Zone 3: CTA Principal */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="https://wa.me/51920690260?text=Hola%20Power%20Digital,%20quiero%20hacer%20crecer%20mi%20negocio"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0B0D17]/70 hover:text-[#0B0D17] transition-colors py-2 px-3"
-            >
-              <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
-              <span className="whitespace-nowrap">WhatsApp</span>
-            </a>
+          {/* Zone 3: Single Primary Action */}
+          <div className="hidden md:flex items-center shrink-0">
             <button
+              type="button"
               onClick={onOpenContact}
-              className="inline-flex items-center gap-2 bg-[#4361EE] hover:bg-[#3451DE] active:scale-98 text-white px-6 py-3 rounded-xl text-sm font-bold transition-all shadow-xs hover:shadow-md whitespace-nowrap cursor-pointer"
+              className="inline-flex items-center gap-2 bg-[#0B0D17] hover:bg-[#4361EE] text-white px-5 py-2.5 rounded-xl text-[13.5px] font-semibold whitespace-nowrap transition-colors duration-200 cursor-pointer"
             >
-              <span>Quiero hacer crecer mi negocio</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>Hablemos</span>
+              <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-2 md:hidden">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#0B0D17] hover:text-[#4361EE] rounded-lg transition-colors focus:outline-hidden focus:ring-2 focus:ring-[#4361EE]"
-              aria-label="Abrir menú"
-              aria-expanded={mobileMenuOpen}
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+          {/* Mobile Trigger */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            className="md:hidden p-2 -mr-2 text-[#0B0D17] hover:text-[#4361EE] rounded-lg transition-colors cursor-pointer"
+            aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav-drawer"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
 
-        {/* Mobile Dropdown Menu */}
+        {/* Mobile Accessible Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-3 pt-3 pb-5 border-t border-[#0B0D17]/10 bg-[#F8F9FA] rounded-b-2xl shadow-lg px-2">
-            <div className="flex flex-col gap-3">
-              {navLinks.map((link) => (
+          <div
+            id="mobile-nav-drawer"
+            className="md:hidden mt-3 pt-4 pb-6 px-4 bg-[#FFFFFF] border border-[#0B0D17]/10 rounded-2xl shadow-xl"
+          >
+            <nav aria-label="Menú móvil" className="flex flex-col divide-y divide-[#0B0D17]/6">
+              {NAV_ITEMS.map((item) => (
                 <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => {
-                    setMobileMenuOpen(false);
-                    if (link.href === '/servicios' && onNavigateToServices) {
-                      e.preventDefault();
-                      onNavigateToServices();
-                    }
-                  }}
-                  className={`px-3 py-2 text-base font-medium rounded-lg transition-colors ${
-                    link.href === '/servicios'
-                      ? 'text-[#4361EE] font-bold bg-[#4361EE]/5'
-                      : 'text-[#0B0D17] hover:text-[#4361EE] hover:bg-[#4361EE]/5'
-                  }`}
+                  key={item.id}
+                  href={item.href}
+                  onClick={(e) => handleLinkClick(e, item.href)}
+                  className="py-3.5 text-base font-semibold text-[#0B0D17] hover:text-[#4361EE] flex items-center justify-between transition-colors"
                 >
-                  {link.name} {link.href === '/servicios' && '✦'}
+                  <span>{item.label}</span>
+                  <ArrowUpRight className="w-4 h-4 text-[#0B0D17]/40" aria-hidden="true" />
                 </a>
               ))}
-              <div className="pt-2 flex flex-col gap-2">
+            </nav>
+
+            <div className="mt-5 pt-4 border-t border-[#0B0D17]/10 flex flex-col gap-2.5">
+              {onNavigateToServices && (
                 <a
-                  href="https://wa.me/51920690260?text=Hola%20Power%20Digital,%20quiero%20hacer%20crecer%20mi%20negocio"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-4 py-2.5 border border-[#0B0D17]/15 rounded-lg text-sm font-semibold text-[#0B0D17] hover:bg-white transition-colors"
-                >
-                  <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
-                  <span>Escríbenos por WhatsApp</span>
-                </a>
-                <button
-                  onClick={() => {
+                  href="/servicios"
+                  onClick={(e) => {
+                    e.preventDefault();
                     setMobileMenuOpen(false);
-                    onOpenContact();
+                    onNavigateToServices();
                   }}
-                  className="flex items-center justify-center gap-2 bg-[#4361EE] hover:bg-[#3451DE] text-white px-4 py-3 rounded-lg text-sm font-semibold transition-all shadow-xs"
+                  className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-[#0B0D17]/12 text-sm font-semibold text-[#0B0D17] hover:border-[#4361EE] transition-colors"
                 >
-                  <span>Quiero hacer crecer mi negocio</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
+                  <BookOpen className="w-4 h-4 text-[#4361EE]" aria-hidden="true" />
+                  <span>Explorar catálogo interactivo</span>
+                </a>
+              )}
+
+              <a
+                href="https://wa.me/51920690260?text=Hola%20Power%20Digital,%20quiero%20conversar%20sobre%20mi%20marca"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-[#0B0D17]/12 text-sm font-semibold text-[#0B0D17]"
+              >
+                <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
+                <span>WhatsApp directo</span>
+              </a>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenContact();
+                }}
+                className="flex items-center justify-center gap-2 bg-[#4361EE] hover:bg-[#3451DE] text-white px-4 py-3.5 rounded-xl text-sm font-bold transition-colors cursor-pointer"
+              >
+                <span>Hablemos de tu marca</span>
+                <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+              </button>
             </div>
           </div>
         )}

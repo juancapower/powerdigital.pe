@@ -1,85 +1,81 @@
-import React from 'react';
-import { motion, useReducedMotion } from 'motion/react';
-
-const MANIFESTO_LINE_ONE = ['No', 'hacemos', 'piezas', 'sueltas.'];
-const MANIFESTO_LINE_TWO = ['Construimos', 'marcas', 'con', 'dirección.'];
+import React, { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 
 export const ManifestoSection: React.FC = () => {
   const prefersReducedMotion = useReducedMotion();
+  const containerRef = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start 85%', 'end 35%'],
+  });
+
+  const lineWidth = useTransform(scrollYProgress, [0, 0.75], ['0%', '100%']);
+  const firstPhraseOpacity = useTransform(scrollYProgress, [0, 0.35], [0.25, 0.62]);
+  const secondPhraseOpacity = useTransform(scrollYProgress, [0.15, 0.65], [0.22, 1]);
+  const secondPhraseY = useTransform(scrollYProgress, [0.1, 0.65], [22, 0]);
 
   return (
     <section
+      ref={containerRef}
       aria-label="Manifiesto de marca Power Digital"
-      className="relative bg-[#0B0D17] text-[#F8F9FA] py-28 sm:py-36 md:py-44 border-t border-white/10 overflow-hidden"
+      className="relative bg-[#0B0D17] text-[#F8F9FA] py-28 sm:py-36 md:py-44 border-t border-white/10 overflow-x-clip"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Eyebrow Column */}
-          <div className="lg:col-span-3">
+          {/* Eyebrow & Scroll-Linked Connection Line */}
+          <div className="lg:col-span-3 text-left">
             <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-[#DEB660]">
               Estrategia · Propósito · IA
             </p>
-            <div className="mt-4 h-[1px] w-14 bg-white/20" aria-hidden="true" />
+            <div className="mt-4 h-[2px] w-full max-w-[140px] bg-white/12 overflow-hidden">
+              <motion.div
+                style={prefersReducedMotion ? { width: '100%' } : { width: lineWidth }}
+                className="h-full bg-gradient-to-r from-[#4361EE] to-[#DEB660]"
+              />
+            </div>
+            <p className="mt-4 font-mono-code text-[10.5px] uppercase tracking-[0.18em] text-white/40">
+              Conexión · Evolución · Dirección
+            </p>
           </div>
 
-          {/* Oversized Typography Statement */}
-          <div className="lg:col-span-9">
+          {/* Kinetic Scroll-Driven Typography */}
+          <div className="lg:col-span-9 text-left">
             <h2 className="text-editorial-manifesto font-bold tracking-tight">
-              <span className="block text-white/45 mb-2 sm:mb-3">
-                {MANIFESTO_LINE_ONE.map((word, idx) => (
-                  <motion.span
-                    key={`l1-${word}-${idx}`}
-                    initial={prefersReducedMotion ? false : { opacity: 0.18, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.45 }}
-                    transition={{
-                      duration: 0.48,
-                      delay: idx * 0.06,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                    className="inline-block mr-[0.26em]"
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-              </span>
+              <motion.span
+                style={
+                  prefersReducedMotion
+                    ? { opacity: 0.55 }
+                    : { opacity: firstPhraseOpacity }
+                }
+                className="block text-white mb-2 sm:mb-3"
+              >
+                No hacemos piezas sueltas.
+              </motion.span>
 
-              <span className="block text-white">
-                {MANIFESTO_LINE_TWO.map((word, idx) => (
-                  <motion.span
-                    key={`l2-${word}-${idx}`}
-                    initial={prefersReducedMotion ? false : { opacity: 0.15, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.45 }}
-                    transition={{
-                      duration: 0.52,
-                      delay: 0.24 + idx * 0.07,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                    className={`inline-block mr-[0.26em] ${
-                      word === 'dirección.' ? 'text-[#4361EE]' : ''
-                    }`}
-                  >
-                    {word}
-                  </motion.span>
-                ))}
-              </span>
+              <motion.span
+                style={
+                  prefersReducedMotion
+                    ? { opacity: 1 }
+                    : { opacity: secondPhraseOpacity, y: secondPhraseY }
+                }
+                className="block text-white"
+              >
+                Construimos marcas con{' '}
+                <span className="text-[#4361EE]">dirección.</span>
+              </motion.span>
             </h2>
 
-            {/* Asymmetric Editorial Explanation */}
+            {/* Restrained Asymmetric Clarification */}
             <div className="mt-12 sm:mt-16 pt-10 border-t border-white/12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-              <p className="md:col-span-7 text-base sm:text-lg text-white/80 leading-relaxed">
-                Cada identidad, campaña audiovisual, experiencia web y flujo de inteligencia
-                artificial responde a un mismo sistema. Conectamos visión comercial, diseño y
-                tecnología para que cada entregable cumpla un propósito medible en el crecimiento de
-                tu marca.
+              <p className="md:col-span-7 text-base sm:text-lg text-white/78 leading-relaxed">
+                Cada identidad, pieza audiovisual, arquitectura web y automatización responde a un
+                sistema único. Conectamos visión comercial, diseño y tecnología con intención clara.
               </p>
-              <div className="md:col-span-5 text-sm text-white/60 leading-relaxed">
-                <p>
-                  De la improvisación visual a una arquitectura coherente: ingeniería de sistemas,
-                  comunicación estratégica y ejecución creativa en una sola mesa de trabajo.
-                </p>
-              </div>
+              <p className="md:col-span-5 text-sm text-white/55 leading-relaxed">
+                Menos improvisación estética; más criterio estratégico y capacidad técnica al
+                servicio de tu marca.
+              </p>
             </div>
           </div>
         </div>

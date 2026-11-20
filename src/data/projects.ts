@@ -1,10 +1,6 @@
-import projectArchImg from '../assets/images/project_architecture_showcase_1794964563986.jpg';
-import bentoStrategyImg from '../assets/images/bento_strategy_editorial_1794964564191.jpg';
-import bentoAiImg from '../assets/images/bento_ai_automation_1794964564478.jpg';
-import methodCraftImg from '../assets/images/method_editorial_craft_1794964565021.jpg';
-import { SERVICES_ASSETS } from '../config/servicesAssets';
+export type ProjectCategory = 'todos' | 'audiovisual' | 'web' | 'marca';
 
-export type ProjectCategory = 'todos' | 'marca' | 'web' | 'contenido-ia';
+export type SpecimenKind = 'audiovisual' | 'web-mockup' | 'branding-system' | 'vertical-reels';
 
 export interface ProjectCase {
   id: string;
@@ -15,161 +11,164 @@ export interface ProjectCase {
   sector: string;
   summary: string;
   context: string;
-  deliverables: string[];
+  scopeNotes: string[];
   recommendedService: string;
-  logoUrl: string;
+  logoUrl: string | null;
   logoTheme: 'dark' | 'light';
-  visualUrl: string;
-  visualAlt: string;
-  visualType: 'conceptual' | 'editorial';
-  visualNote: string;
+  specimenKind: SpecimenKind;
+  mediaStatus: 'Pendiente de archivo real';
+  requiredAssets: string[];
   featured?: boolean;
-  aspect?: 'wide' | 'portrait' | 'square';
 }
 
 export const PROJECT_CATEGORIES: { id: ProjectCategory; label: string }[] = [
   { id: 'todos', label: 'Todos los casos' },
-  { id: 'marca', label: 'Estrategia y Marca' },
+  { id: 'audiovisual', label: 'Contenido y Audiovisual' },
   { id: 'web', label: 'Web y Experiencia' },
-  { id: 'contenido-ia', label: 'Contenido e IA' },
+  { id: 'marca', label: 'Identidad y Marca' },
 ];
 
 /**
- * Editable portfolio repository.
- * Note: Uses exclusively real verified Power Digital client brands from src/data/clients.ts.
- * Where final mockup/screenshot photography is pending client sign-off or asset upload,
- * curated editorial placeholder visuals are explicitly tagged via `visualType: 'conceptual'`.
+ * Repositorio honesto de portafolio Power Digital.
+ * - Incluye únicamente clientes reales registrados en Power Digital.
+ * - Ninguna cifra inventada ni renders decorativos simulando capturas reales.
+ * - Cada caso especifica con transparencia los archivos de producción requeridos para completar la galería final.
  */
 export const SELECTED_PROJECTS: ProjectCase[] = [
   {
     id: 'serna-estate',
     client: 'Serna Estate',
-    title: 'Dirección de marca y presencia digital para firma legal inmobiliaria',
-    category: 'marca',
-    categoryLabel: 'Estrategia y Marca',
+    title: 'Contenido y producción audiovisual para asesoría inmobiliaria y respaldo legal',
+    category: 'audiovisual',
+    categoryLabel: 'Contenido y Audiovisual',
     sector: 'Sector Legal & Inmobiliario',
     summary:
-      'Ordenamiento de propuesta de valor, identidad visual sobria y activos de comunicación orientados a transmitir respaldo jurídico y confianza patrimonial.',
+      'Dirección narrativa y piezas audiovisuales diseñadas para proyectar criterio técnico, orden legal y confianza patrimonial en canales digitales.',
     context:
-      'Una firma especializada en asesoría legal inmobiliaria necesitaba proyectar autoridad técnica y cercanía ejecutiva en cada punto de contacto digital.',
-    deliverables: [
-      'Claridad de posicionamiento y tono verbal',
-      'Sistema gráfico y piezas de autoridad para canales digitales',
-      'Estructura comercial orientada a reuniones consultivas',
+      'Caso activo con identidad oficial registrada en repositorio. La vitrina muestra el formato de producción audiovisual en espera de incorporar las piezas reales finales de grabación.',
+    scopeNotes: [
+      'Logotipo oficial verificado en sistema de marca',
+      'Guía de formato audiovisual 16:9 / vertical para canales digitales',
+      'Material audiovisual final pendiente de carga en repositorio',
     ],
-    recommendedService: 'Estrategia y marca',
+    recommendedService: 'Contenido y producción creativa',
     logoUrl:
       'https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1790717089/SernaEstate_HorizontalLogoTransparent_f2czvn.png',
     logoTheme: 'light',
-    visualUrl: projectArchImg,
-    visualAlt: 'Composición arquitectónica de marca para Serna Estate',
-    visualType: 'conceptual',
-    visualNote: 'Representación visual conceptual · Material de caso real en curaduría',
+    specimenKind: 'audiovisual',
+    mediaStatus: 'Pendiente de archivo real',
+    requiredAssets: [
+      'Video reel silencioso (MP4 H.264, máx. 10–15 MB) de producción Serna Estate',
+      '2–3 fotogramas reales en alta resolución (16:9) de rodaje o piezas publicadas',
+    ],
     featured: true,
-    aspect: 'wide',
   },
   {
     id: 'warmi-kapital',
     client: 'Warmi Kapital',
-    title: 'Narrativa financiera y ecosistema digital de inversión con propósito',
+    title: 'Identidad y presencia digital orientada a solidez y claridad financiera',
     category: 'web',
     categoryLabel: 'Web y Experiencia',
     sector: 'Fintech & Capital',
     summary:
-      'Conceptualización estratégica y arquitectura digital diseñada para comunicar solidez financiera sin perder calidez ni accesibilidad.',
+      'Arquitectura de comunicación y presencia digital estructurada para presentar servicios financieros con transparencia visual.',
     context:
-      'El desafío central consistió en traducir conceptos financieros complejos en una experiencia comprensible, clara y confiable para nuevas audiencias.',
-    deliverables: [
-      'Arquitectura de información y narrativa comercial',
-      'Diseño de experiencia web y captación estructurada',
-      'Lineamientos visuales consistentes entre marca y producto',
+      'Caso real con logotipo oficial incorporado. El marco superior reproduce el formato de navegador web en espera de sus capturas reales de producción.',
+    scopeNotes: [
+      'Logotipo institucional en contraste oscuro verificado',
+      'Estructura de navegación y mensaje orientada a claridad financiera',
+      'Capturas desktop y mobile pendientes de incorporación',
     ],
     recommendedService: 'Web y experiencia digital',
     logoUrl:
       'https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1783048450/ClientesPowerDigital_Empresa_WarmiKapital_zkguh6.png',
     logoTheme: 'dark',
-    visualUrl: SERVICES_ASSETS.web.url,
-    visualAlt: 'Exploración de experiencia web para Warmi Kapital',
-    visualType: 'conceptual',
-    visualNote: 'Presentación visual conceptual · Capturas finales pendientes de publicación',
-    aspect: 'square',
+    specimenKind: 'web-mockup',
+    mediaStatus: 'Pendiente de archivo real',
+    requiredAssets: [
+      'Captura real de pantalla completa Desktop (1440×900 PNG/WebP) del sitio Warmi Kapital',
+      'Captura real Mobile (390×844) de la vista principal y flujo de contacto',
+    ],
   },
   {
-    id: 'hugodam',
-    client: 'HugoDam',
-    title: 'Posicionamiento high-ticket y sistema de contenido de autoridad',
-    category: 'contenido-ia',
-    categoryLabel: 'Contenido e IA',
-    sector: 'Marca Personal & Dirección',
+    id: 'raiz',
+    client: 'RAÍZ',
+    title: 'Experiencia web y sistema de marca',
+    category: 'web',
+    categoryLabel: 'Web y Experiencia',
+    sector: 'Marca & Experiencia Web',
     summary:
-      'Alineación de narrativa personal, diseño visual refinado y producción audiovisual asistida por flujos modernos de edición e IA.',
+      'Espacio reservado en galería para presentar el caso real de experiencia web y marca RAÍZ sin recurrir a simulaciones gráficas.',
     context:
-      'Para sostener una oferta consultiva de alto valor, la presencia digital debía reflejar criterio, orden y consistencia en cada pieza publicada.',
-    deliverables: [
-      'Dirección creativa de identidad personal',
-      'Estructura de guiones y formatos audiovisuales',
-      'Activos digitales coordinados para conversión directa',
+      'Caso incorporado por indicación de dirección creativa. No existen archivos multimedia ni logotipo previo de RAÍZ dentro del repositorio actual.',
+    scopeNotes: [
+      'Espacio editorial preparado en disposición asimétrica web',
+      'Sin recursos gráficos falsos ni métricas fabricadas',
+      'Requiere carga de logotipo oficial y capturas reales del proyecto',
     ],
-    recommendedService: 'Contenido y producción creativa',
-    logoUrl:
-      'https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1790717370/Logo_GoldWhite_mgcbwv.png',
-    logoTheme: 'dark',
-    visualUrl: bentoAiImg,
-    visualAlt: 'Composición luminosa de tecnología y dirección para HugoDam',
-    visualType: 'conceptual',
-    visualNote: 'Presentación visual conceptual · Material audiovisual en archivo interno',
-    aspect: 'square',
+    recommendedService: 'Web y experiencia digital',
+    logoUrl: null,
+    logoTheme: 'light',
+    specimenKind: 'web-mockup',
+    mediaStatus: 'Pendiente de archivo real',
+    requiredAssets: [
+      'Logotipo oficial de RAÍZ en SVG o PNG transparente',
+      'Capturas reales de la experiencia web publicada (desktop y móvil)',
+      'Breve confirmación de alcance real trabajado',
+    ],
   },
   {
     id: 'levitas',
     client: 'LEVITAS',
-    title: 'Identidad corporativa y presencia digital para movilidad empresarial',
+    title: 'Comunicación corporativa y materiales de marca para movilidad B2B',
     category: 'marca',
-    categoryLabel: 'Estrategia y Marca',
+    categoryLabel: 'Identidad y Marca',
     sector: 'Transporte Corporativo',
     summary:
-      'Modernización visual y estructuración de comunicación B2B enfocada en puntualidad, seguridad operativa y estándar ejecutivo.',
+      'Construcción visual sobria y materiales corporativos alineados con estándares de puntualidad y respaldo empresarial.',
     context:
-      'El servicio requería diferenciarse del transporte convencional mediante una marca sobria, reconocible y alineada a clientes corporativos.',
-    deliverables: [
-      'Refinamiento visual y lenguaje corporativo',
-      'Piezas de presentación comercial y presencia digital',
-      'Enfoque comunicacional centrado en confianza operativa',
+      'Marca corporativa real con logotipo blanco oficial verificado en Cloudinary y ruta de cliente configurada en el ecosistema.',
+    scopeNotes: [
+      'Logotipo corporativo LEVITAS verificado',
+      'Sistema de contraste alto sobre fondo obsidiana',
+      'Piezas impresas/digitales de brandbook pendientes de carga',
     ],
     recommendedService: 'Estrategia y marca',
     logoUrl:
       'https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1783048451/ClientesPowerDigital_Empresa_Levitas_kkhggj.png',
     logoTheme: 'dark',
-    visualUrl: bentoStrategyImg,
-    visualAlt: 'Estudio visual arquitectónico para marca corporativa LEVITAS',
-    visualType: 'conceptual',
-    visualNote: 'Presentación visual conceptual · Mockups reales por incorporar',
-    aspect: 'wide',
+    specimenKind: 'branding-system',
+    mediaStatus: 'Pendiente de archivo real',
+    requiredAssets: [
+      'Piezas reales de branding LEVITAS (portada de manual o aplicaciones gráficas)',
+      'Fotografías o mockups reales de papelería / material comercial corporativo',
+    ],
   },
   {
-    id: 'eversafe-financial',
-    client: 'Eversafe Financial',
-    title: 'Acompañamiento digital y estructura de captación consultiva',
-    category: 'web',
-    categoryLabel: 'Web y Experiencia',
-    sector: 'Finanzas & Seguros',
+    id: 'hugodam',
+    client: 'Hugo Dam',
+    title: 'Contenido inmobiliario y sistema de comunicación vertical',
+    category: 'audiovisual',
+    categoryLabel: 'Contenido y Audiovisual',
+    sector: 'Contenido Inmobiliario',
     summary:
-      'Diseño de piezas claras y canales de contacto orientados a guiar al cliente hacia conversaciones asesoradas sin fricción.',
+      'Estructura de contenido inmobiliario y presencia audiovisual pensada para comunicar criterio y posicionamiento directo.',
     context:
-      'En servicios financieros, la claridad del mensaje y la transparencia de los pasos iniciales determinan la calidad de cada consulta recibida.',
-    deliverables: [
-      'Claridad de oferta y mensajería de confianza',
-      'Activos digitales preparados para campañas de captación',
-      'Flujo directo hacia sesiones de evaluación',
+      'Cliente real con logotipo oficial dorado/blanco en repositorio y carpeta de trabajo asignada. Pendiente adjuntar clips y fotografías reales de rodaje.',
+    scopeNotes: [
+      'Logotipo oficial Hugo Dam Gold/White verificado',
+      'Formato vertical 9:16 preparado para piezas inmobiliarias',
+      'Clips MP4 y fotografías reales pendientes de publicación',
     ],
-    recommendedService: 'Growth y acompañamiento estratégico',
+    recommendedService: 'Contenido y producción creativa',
     logoUrl:
-      'https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1790717066/eversafe-financial-logo-horizontal-full-color_iqkolo.png',
-    logoTheme: 'light',
-    visualUrl: methodCraftImg,
-    visualAlt: 'Sistema estructurado de crecimiento para Eversafe Financial',
-    visualType: 'conceptual',
-    visualNote: 'Presentación visual conceptual · Material de caso en preparación',
-    aspect: 'square',
+      'https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1790717370/Logo_GoldWhite_mgcbwv.png',
+    logoTheme: 'dark',
+    specimenKind: 'vertical-reels',
+    mediaStatus: 'Pendiente de archivo real',
+    requiredAssets: [
+      'Clip vertical silencioso real (MP4 9:16) de propiedad o cápsula Hugo Dam',
+      'Fotografía real de producción o retrato en locación inmobiliaria',
+    ],
   },
 ];

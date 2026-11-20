@@ -35,7 +35,7 @@ body {
   font-family: var(--font-body);
   background-color: var(--pd-bg-primary);
   color: var(--pd-fg);
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -51,29 +51,36 @@ p {
 
 .font-mono-code {
   font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
 }
 
-/* Fluid editorial scale utilities */
+/* Fluid editorial scale utilities — stronger creative studio hierarchy */
+.text-editorial-hero-display {
+  font-size: clamp(2.35rem, 5.3vw, 4.9rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
 .text-editorial-hero {
-  font-size: clamp(2.15rem, 4.8vw, 4.4rem);
-  line-height: 1.05;
-  letter-spacing: -0.035em;
+  font-size: clamp(2.25rem, 5vw, 4.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.038em;
 }
 
 .text-editorial-manifesto {
-  font-size: clamp(2.1rem, 5.2vw, 4.75rem);
-  line-height: 1.06;
-  letter-spacing: -0.035em;
+  font-size: clamp(2.2rem, 5.6vw, 5.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.038em;
 }
 
 .text-editorial-title {
-  font-size: clamp(1.85rem, 3.8vw, 3.25rem);
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.9rem, 3.9vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.032em;
 }
 
 .text-editorial-lead {
-  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  font-size: clamp(1.02rem, 1.35vw, 1.25rem);
   line-height: 1.6;
 }
 
@@ -106,7 +113,7 @@ p {
   display: flex;
   width: max-content;
   will-change: transform;
-  animation: marquee 48s linear infinite;
+  animation: marquee 46s linear infinite;
 }
 
 .animate-marquee:hover,
@@ -118,7 +125,7 @@ p {
   display: flex;
   width: max-content;
   will-change: transform;
-  animation: marquee-reverse 54s linear infinite;
+  animation: marquee-reverse 52s linear infinite;
 }
 
 .animate-marquee-reverse:hover,
@@ -126,7 +133,6 @@ p {
   animation-play-state: paused;
 }
 
-/* Scrollbar hiding for horizontal touch rail if used */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

@@ -1,10 +1,8 @@
-import React from 'react';
-import { motion, useReducedMotion } from 'motion/react';
+import React, { useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { ArrowUpRight, BookOpen } from 'lucide-react';
 import { SERVICES_DATA } from '../data/services';
-import bentoStrategyImg from '../assets/images/bento_strategy_editorial_1794964564191.jpg';
-import bentoAiImg from '../assets/images/bento_ai_automation_1794964564478.jpg';
-import { SERVICES_ASSETS } from '../config/servicesAssets';
+import { DisciplineVectorStage } from './motion/PowerMotionArt';
 
 interface ServicesSectionProps {
   onSelectService: (serviceName: string) => void;
@@ -16,6 +14,9 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   onNavigateToServices,
 }) => {
   const prefersReducedMotion = useReducedMotion();
+  const [activeId, setActiveId] = useState<string>(SERVICES_DATA[0].id);
+
+  const activeService = SERVICES_DATA.find((s) => s.id === activeId) || SERVICES_DATA[0];
 
   return (
     <section
@@ -23,9 +24,9 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       className="py-24 sm:py-32 bg-[#FFFFFF] text-[#0B0D17] border-t border-[#0B0D17]/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Editorial Heading */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-14 sm:mb-18">
-          <div className="lg:col-span-7">
+        {/* Studio Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 sm:mb-16">
+          <div className="lg:col-span-7 text-left">
             <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-[#4361EE] font-medium mb-3">
               Ecosistema de Soluciones
             </p>
@@ -34,10 +35,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
             </h2>
           </div>
 
-          <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-4">
-            <p className="text-sm sm:text-base text-[#0B0D17]/70 leading-relaxed max-w-md lg:text-right">
-              Cinco frentes integrados que diseñan la identidad, comunicación, infraestructura web y
-              operación tecnológica de tu marca.
+          <div className="lg:col-span-5 flex flex-col items-start lg:items-end gap-4 text-left lg:text-right">
+            <p className="text-sm sm:text-base text-[#0B0D17]/70 leading-relaxed max-w-md">
+              Cinco disciplinas conectadas para estructurar marca, contenido, web e IA en un mismo
+              rumbo comercial.
             </p>
             {onNavigateToServices && (
               <a
@@ -46,206 +47,166 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   e.preventDefault();
                   onNavigateToServices();
                 }}
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#4361EE] hover:text-[#3451DE] transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#4361EE] hover:text-[#0B0D17] transition-colors whitespace-nowrap"
               >
                 <BookOpen className="w-4 h-4" aria-hidden="true" />
-                <span>Explorar catálogo interactivo completo</span>
+                <span>Explorar catálogo completo en /servicios</span>
                 <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
               </a>
             )}
           </div>
         </div>
 
-        {/* Asymmetric Editorial Bento Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6">
-          {SERVICES_DATA.map((service, index) => {
-            const isContrast = service.variant === 'contrast';
-            const isAccent = service.variant === 'accent';
-
-            // Module visual attachment based on service ID
-            let visualUrl: string | null = null;
-            let visualAlt = '';
-            if (service.id === 'estrategia-marca') {
-              visualUrl = bentoStrategyImg;
-              visualAlt = 'Composición geométrica de estrategia y arquitectura de marca';
-            } else if (service.id === 'contenido-creativo') {
-              visualUrl = SERVICES_ASSETS.content.url;
-              visualAlt = SERVICES_ASSETS.content.alt;
-            } else if (service.id === 'web-experiencia') {
-              visualUrl = SERVICES_ASSETS.web.url;
-              visualAlt = SERVICES_ASSETS.web.alt;
-            } else if (service.id === 'ia-automatizacion') {
-              visualUrl = bentoAiImg;
-              visualAlt = 'Refracción óptica sobre fondo oscuro representando IA aplicada';
-            }
-
-            if (isAccent) {
-              // Full-width horizontal strategic band for Module 05: Growth & Acompañamiento
+        {/* Asymmetric Interactive Index (Eliminates repetitive cards completely) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          {/* Left 6 Columns: Typographic Hairline Discipline List */}
+          <div className="lg:col-span-6 divide-y divide-[#0B0D17]/12 border-t border-b border-[#0B0D17]/12">
+            {SERVICES_DATA.map((service) => {
+              const isActive = service.id === activeId;
               return (
-                <motion.div
-                  key={service.id}
-                  initial={prefersReducedMotion ? false : { opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.15 }}
-                  transition={{ duration: 0.45, delay: 0.15 }}
-                  className={`${service.spanClass} bg-[#F8F9FA] border border-[#0B0D17]/10 rounded-3xl p-7 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center`}
-                >
-                  <div className="lg:col-span-7 text-left">
-                    <p className="font-mono-code text-[11px] uppercase tracking-[0.2em] text-[#4361EE] mb-2">
-                      {service.number} · {service.badge}
-                    </p>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-[#0B0D17] mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-[#0B0D17]/75 leading-relaxed max-w-2xl">
-                      {service.description}
-                    </p>
-                  </div>
-
-                  <div className="lg:col-span-5 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-4">
-                    <div className="text-left lg:text-right">
-                      <span className="font-mono-code text-[11px] uppercase tracking-wider text-[#8A6B20] block mb-1">
-                        Enfoque continuo
-                      </span>
-                      <p className="text-sm font-semibold text-[#0B0D17]">{service.growthImpact}</p>
-                    </div>
-
-                    <div className="flex flex-wrap items-center gap-3">
-                      <button
-                        type="button"
-                        onClick={() => onSelectService(service.title)}
-                        className="inline-flex items-center gap-2 bg-[#0B0D17] hover:bg-[#4361EE] text-white px-5 py-3 rounded-xl text-sm font-semibold transition-colors cursor-pointer"
-                      >
-                        <span>Evaluar acompañamiento</span>
-                        <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
-                      </button>
-                      {onNavigateToServices && (
-                        <button
-                          type="button"
-                          onClick={onNavigateToServices}
-                          className="inline-flex items-center gap-2 border border-[#0B0D17]/15 hover:border-[#4361EE] bg-white text-[#0B0D17] px-5 py-3 rounded-xl text-sm font-semibold transition-colors cursor-pointer"
-                        >
-                          <span>Ver en catálogo</span>
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            }
-
-            const hasSideSplit = service.spanClass.includes('col-span-7');
-
-            return (
-              <motion.article
-                key={service.id}
-                initial={prefersReducedMotion ? false : { opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{
-                  duration: 0.48,
-                  delay: index * 0.06,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className={`${service.spanClass} group rounded-3xl overflow-hidden border transition-colors ${
-                  isContrast
-                    ? 'bg-[#0B0D17] text-white border-white/12 hover:border-white/25'
-                    : 'bg-[#F8F9FA] text-[#0B0D17] border-[#0B0D17]/10 hover:border-[#0B0D17]/20'
-                }`}
-              >
-                <div
-                  className={`h-full flex flex-col ${
-                    hasSideSplit ? 'md:grid md:grid-cols-12' : ''
-                  }`}
-                >
-                  {/* Visual Block */}
-                  {visualUrl && (
-                    <div
-                      className={`relative overflow-hidden ${
-                        hasSideSplit
-                          ? 'md:col-span-5 aspect-4/3 md:aspect-auto md:h-full'
-                          : 'aspect-16/9'
-                      } ${isContrast ? 'bg-[#131624]' : 'bg-[#0B0D17]/5'}`}
-                    >
-                      <img
-                        src={visualUrl}
-                        alt={visualAlt}
-                        loading="lazy"
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                      />
-                    </div>
-                  )}
-
-                  {/* Narrative Block */}
-                  <div
-                    className={`${
-                      hasSideSplit ? 'md:col-span-7' : 'flex-1'
-                    } p-6 sm:p-8 flex flex-col justify-between text-left`}
+                <div key={service.id}>
+                  <button
+                    type="button"
+                    onClick={() => setActiveId(service.id)}
+                    onMouseEnter={() => setActiveId(service.id)}
+                    aria-expanded={isActive}
+                    className="w-full py-5 sm:py-6 flex items-start justify-between gap-4 text-left group cursor-pointer"
                   >
-                    <div>
-                      <div className="flex items-center justify-between gap-3 mb-4">
-                        <span
-                          className={`font-mono-code text-[11px] uppercase tracking-[0.18em] ${
-                            isContrast ? 'text-[#DEB660]' : 'text-[#4361EE]'
+                    <div className="flex items-baseline gap-4 sm:gap-5">
+                      <span
+                        className={`font-mono-code text-xs sm:text-sm transition-colors ${
+                          isActive ? 'text-[#4361EE] font-semibold' : 'text-[#0B0D17]/40'
+                        }`}
+                      >
+                        {service.number}
+                      </span>
+                      <div>
+                        <h3
+                          className={`text-lg sm:text-2xl font-bold tracking-tight transition-colors ${
+                            isActive
+                              ? 'text-[#0B0D17]'
+                              : 'text-[#0B0D17]/65 group-hover:text-[#0B0D17]'
                           }`}
                         >
-                          {service.number} · {service.badge}
-                        </span>
+                          {service.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-[#0B0D17]/55 mt-1">
+                          {service.subtitle}
+                        </p>
                       </div>
-
-                      <h3 className="text-xl sm:text-2xl font-bold leading-snug mb-3">
-                        {service.title}
-                      </h3>
-
-                      <p
-                        className={`text-sm leading-relaxed mb-5 ${
-                          isContrast ? 'text-white/75' : 'text-[#0B0D17]/70'
-                        }`}
-                      >
-                        {service.description}
-                      </p>
-
-                      <ul
-                        className={`space-y-1.5 pt-4 border-t mb-6 text-xs sm:text-[13px] ${
-                          isContrast
-                            ? 'border-white/10 text-white/75'
-                            : 'border-[#0B0D17]/8 text-[#0B0D17]/75'
-                        }`}
-                      >
-                        {service.items.map((item) => (
-                          <li key={item} className="flex items-center gap-2">
-                            <span
-                              className={isContrast ? 'text-[#DEB660]' : 'text-[#4361EE]'}
-                              aria-hidden="true"
-                            >
-                              ·
-                            </span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
                     </div>
 
-                    <div className="flex items-center justify-between gap-4">
+                    <ArrowUpRight
+                      className={`w-5 h-5 shrink-0 mt-1 transition-all duration-200 ${
+                        isActive
+                          ? 'text-[#4361EE] translate-x-0.5 -translate-y-0.5'
+                          : 'text-[#0B0D17]/30 group-hover:text-[#0B0D17]'
+                      }`}
+                      aria-hidden="true"
+                    />
+                  </button>
+
+                  {/* Mobile inline reveal panel (avoids endless scroll stack) */}
+                  <AnimatePresence initial={false}>
+                    {isActive && (
+                      <motion.div
+                        initial={prefersReducedMotion ? false : { opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={prefersReducedMotion ? undefined : { opacity: 0, height: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="lg:hidden overflow-hidden pb-6"
+                      >
+                        <div className="bg-[#0B0D17] text-white p-5 space-y-4">
+                          <DisciplineVectorStage activeId={service.id} />
+                          <p className="text-sm text-white/80 leading-relaxed">
+                            {service.description}
+                          </p>
+                          <ul className="space-y-1.5 text-xs text-white/70 border-t border-white/10 pt-3">
+                            {service.items.map((item) => (
+                              <li key={item}>· {item}</li>
+                            ))}
+                          </ul>
+                          <button
+                            type="button"
+                            onClick={() => onSelectService(service.title)}
+                            className="inline-flex items-center gap-2 bg-[#4361EE] hover:bg-[#3451DE] text-white px-5 py-3 text-xs font-bold transition-colors cursor-pointer"
+                          >
+                            <span>Consultar por {service.title}</span>
+                            <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                          </button>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Right 6 Columns: Exhibition Stage (Desktop) */}
+          <div className="hidden lg:block lg:col-span-6 lg:sticky lg:top-28">
+            <div className="bg-[#0B0D17] text-[#F8F9FA] p-8 border border-[#0B0D17]">
+              <DisciplineVectorStage activeId={activeService.id} />
+
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeService.id}
+                  initial={prefersReducedMotion ? false : { opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={prefersReducedMotion ? undefined : { opacity: 0, y: -8 }}
+                  transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
+                  className="pt-7 text-left"
+                >
+                  <div className="flex items-center justify-between gap-4 mb-3">
+                    <span className="font-mono-code text-[11px] uppercase tracking-[0.2em] text-[#DEB660]">
+                      {activeService.number} · {activeService.badge}
+                    </span>
+                    <span className="font-mono-code text-[11px] text-white/50">
+                      {activeService.tagline}
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-white mb-3">{activeService.title}</h3>
+
+                  <p className="text-sm sm:text-[15px] text-white/75 leading-relaxed mb-6">
+                    {activeService.description}
+                  </p>
+
+                  <ul className="space-y-2 border-t border-white/12 pt-5 mb-7 text-sm text-white/80">
+                    {activeService.items.map((item) => (
+                      <li key={item} className="flex items-center gap-2.5">
+                        <span className="text-[#DEB660]" aria-hidden="true">
+                          —
+                        </span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="flex flex-wrap items-center justify-between gap-4">
+                    <button
+                      type="button"
+                      onClick={() => onSelectService(activeService.title)}
+                      className="inline-flex items-center gap-2 bg-[#4361EE] hover:bg-[#3451DE] text-white px-6 py-3.5 text-sm font-semibold transition-colors cursor-pointer"
+                    >
+                      <span>Consultar por este servicio</span>
+                      <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                    </button>
+
+                    {onNavigateToServices && (
                       <button
                         type="button"
-                        onClick={() => onSelectService(service.title)}
-                        className={`inline-flex items-center gap-2 text-sm font-bold transition-colors cursor-pointer ${
-                          isContrast
-                            ? 'text-white hover:text-[#DEB660]'
-                            : 'text-[#0B0D17] hover:text-[#4361EE]'
-                        }`}
+                        onClick={onNavigateToServices}
+                        className="text-xs font-mono-code uppercase tracking-wider text-white/70 hover:text-[#DEB660] transition-colors cursor-pointer"
                       >
-                        <span>Consultar por este servicio</span>
-                        <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                        Ver en catálogo →
                       </button>
-                    </div>
+                    )}
                   </div>
-                </div>
-              </motion.article>
-            );
-          })}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,105 +1,106 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 
 export const FounderSection: React.FC = () => {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section
       id="nosotros"
       className="py-24 sm:py-32 bg-[#FFFFFF] text-[#0B0D17] border-t border-[#0B0D17]/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-18 items-center">
-          {/* Editorial Portrait Frame */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Clean Editorial Portrait — No dark scrim obscuring the subject */}
           <div className="lg:col-span-5">
-            <figure className="relative rounded-3xl overflow-hidden bg-[#F8F9FA] border border-[#0B0D17]/10 aspect-4/5 max-w-md mx-auto lg:mx-0">
-              <img
-                src="https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1790717890/hf_20260929_213557_0943d7bf-70be-4d3e-b17b-b958a667eb1f_dvlmap.png"
-                alt="Juan Carlos Cabrera Díaz, fundador y director estratégico de Power Digital"
-                className="w-full h-full object-cover object-top"
-                loading="lazy"
-                referrerPolicy="no-referrer"
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-[#0B0D17]/90 via-[#0B0D17]/55 to-transparent text-white text-left">
-                <span className="font-mono-code text-[11px] uppercase tracking-[0.18em] text-[#DEB660] block mb-1">
-                  Dirección y Criterio Técnico
-                </span>
-                <span className="text-lg font-bold block">Juan Carlos Cabrera Díaz</span>
-                <span className="text-xs text-white/75">
-                  Fundador · Power Digital
+            <motion.figure
+              initial={prefersReducedMotion ? false : { clipPath: 'inset(0 0 10% 0)', opacity: 0.4 }}
+              whileInView={{ clipPath: 'inset(0 0 0% 0)', opacity: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="max-w-md mx-auto lg:mx-0 text-left"
+            >
+              <div className="aspect-4/5 overflow-hidden bg-[#F8F9FA] border border-[#0B0D17]/10">
+                <img
+                  src="https://res.cloudinary.com/ddn6qh7ve/image/upload/f_auto,q_auto/v1790717890/hf_20260929_213557_0943d7bf-70be-4d3e-b17b-b958a667eb1f_dvlmap.png"
+                  alt="Juan Carlos Cabrera Díaz, fundador y director estratégico en Power Digital"
+                  className="w-full h-full object-cover object-top"
+                  loading="lazy"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <figcaption className="pt-4 mt-4 border-t border-[#0B0D17]/12 flex items-baseline justify-between gap-4">
+                <div>
+                  <span className="text-base font-bold text-[#0B0D17] block">
+                    Juan Carlos Cabrera Díaz
+                  </span>
+                  <span className="text-xs text-[#0B0D17]/60">
+                    Fundador · Dirección Estratégica e Ingeniería de Sistemas
+                  </span>
+                </div>
+                <span className="font-mono-code text-[10.5px] uppercase tracking-[0.18em] text-[#8A6B20] shrink-0">
+                  Power Digital
                 </span>
               </figcaption>
-            </figure>
+            </motion.figure>
           </div>
 
-          {/* Editorial Narrative */}
+          {/* Concise Studio Narrative */}
           <div className="lg:col-span-7 text-left">
             <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-[#4361EE] font-medium mb-3">
-              Diferencial Humano y Tecnológico
+              Criterio & Dirección
             </p>
 
-            <h2 className="text-editorial-title font-bold text-[#0B0D17] mb-7">
-              Visión estratégica. Mentalidad tecnológica. Creatividad con propósito.
+            <h2 className="text-editorial-title font-bold text-[#0B0D17] mb-6">
+              Ingeniería, estrategia y creatividad bajo un mismo criterio.
             </h2>
 
-            <div className="space-y-4 text-base sm:text-lg text-[#0B0D17]/75 leading-relaxed mb-10">
-              <p>
-                Power Digital nace liderada por <strong className="text-[#0B0D17]">Juan Carlos Cabrera Díaz</strong> desde la
-                unión poco común entre la <strong className="text-[#0B0D17]">Ingeniería de Sistemas</strong>, la dirección
-                estratégica, el diseño digital y la integración práctica de inteligencia artificial.
-              </p>
-              <p className="text-sm sm:text-base text-[#0B0D17]/70">
-                Cada proyecto combina arquitectura técnica ordenada, comprensión real de cómo toman
-                decisiones las personas y herramientas de automatización pensadas para que las
-                marcas operen con mayor claridad y solidez comercial.
-              </p>
-            </div>
+            <p className="text-base sm:text-lg text-[#0B0D17]/75 leading-relaxed mb-10 max-w-2xl">
+              En Power Digital cada proyecto es liderado combinando arquitectura técnica propia de
+              la Ingeniería de Sistemas, posicionamiento de marca e integración práctica de
+              inteligencia artificial.
+            </p>
 
-            {/* Clean Typographic Capability Grid (Zero Cliché Cards / Zero border-l-4) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 pt-8 border-t border-[#0B0D17]/10 mb-10">
+            {/* Unboxed Architectural Capabilities */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6 py-7 border-t border-b border-[#0B0D17]/10 mb-9">
               <div>
                 <h3 className="text-sm font-bold text-[#0B0D17] mb-1">
-                  Ingeniería de Sistemas y Arquitectura
+                  Arquitectura y Sistemas
                 </h3>
                 <p className="text-xs sm:text-sm text-[#0B0D17]/65 leading-relaxed">
-                  Bases técnicas limpias, integración de activos digitales y criterio estructurado de
-                  producto.
+                  Bases digitales ordenadas, escalables y libres de fricción operativa.
                 </p>
               </div>
               <div>
                 <h3 className="text-sm font-bold text-[#0B0D17] mb-1">
-                  Dirección Estratégica de Marcas
+                  Dirección Estratégica
                 </h3>
                 <p className="text-xs sm:text-sm text-[#0B0D17]/65 leading-relaxed">
-                  Posicionamiento, narrativa de valor y decisiones enfocadas en la realidad de cada
-                  negocio.
+                  Narrativa comercial y posicionamiento pensados para la etapa real del negocio.
                 </p>
               </div>
               <div>
                 <h3 className="text-sm font-bold text-[#0B0D17] mb-1">
-                  Inteligencia Artificial Aplicada
+                  IA con Criterio Humano
                 </h3>
                 <p className="text-xs sm:text-sm text-[#0B0D17]/65 leading-relaxed">
-                  Flujos de producción creativa, avatares y automatizaciones útiles sin complejidad
-                  artificial.
+                  Automatización y producción audiovisual asistida donde aporta velocidad real.
                 </p>
               </div>
               <div>
                 <h3 className="text-sm font-bold text-[#0B0D17] mb-1">
-                  Comunicación con Propósito
+                  Identidad con Propósito
                 </h3>
                 <p className="text-xs sm:text-sm text-[#0B0D17]/65 leading-relaxed">
-                  Cada pieza responde a un objetivo concreto y respeta la identidad genuina de quien
-                  está detrás.
+                  Piezas coherentes con la esencia y ambición real de cada empresa.
                 </p>
               </div>
             </div>
 
-            {/* Editorial Pull-Quote with Hairline Top Rule */}
-            <blockquote className="pt-6 border-t border-[#0B0D17]/10 mb-8">
-              <p className="text-base sm:text-lg italic text-[#0B0D17]/85 leading-relaxed">
-                “El crecimiento digital sostenible ocurre cuando la precisión tecnológica trabaja al
-                servicio de ideas claras y relaciones de confianza.”
-              </p>
+            <blockquote className="mb-8 text-base sm:text-lg italic text-[#0B0D17]/80 leading-relaxed max-w-2xl">
+              “El crecimiento digital sostenible ocurre cuando la precisión tecnológica trabaja al
+              servicio de ideas claras y relaciones de confianza.”
             </blockquote>
 
             <div className="flex flex-wrap items-center gap-6">
@@ -109,7 +110,7 @@ export const FounderSection: React.FC = () => {
                   e.preventDefault();
                   document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="inline-flex items-center gap-2 text-sm font-bold text-[#4361EE] hover:text-[#3451DE] transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#4361EE] hover:text-[#0B0D17] transition-colors"
               >
                 <span>Conversemos sobre tu proyecto</span>
                 <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
@@ -122,7 +123,7 @@ export const FounderSection: React.FC = () => {
                 }}
                 className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#0B0D17]/65 hover:text-[#0B0D17] transition-colors"
               >
-                <span>Ver cómo trabajamos</span>
+                <span>Ver metodología</span>
               </a>
             </div>
           </div>

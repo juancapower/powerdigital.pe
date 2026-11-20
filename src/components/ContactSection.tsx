@@ -121,7 +121,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
     setLoading(true);
     setErrorMsg('');
 
-    // Prepare real client-side handoff without faking a non-existent backend API response
     window.setTimeout(() => {
       setLoading(false);
       setPrepared(true);
@@ -131,40 +130,39 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
   return (
     <section
       id="contacto"
-      className="py-24 sm:py-32 pb-28 sm:pb-36 bg-[#F8F9FA] text-[#0B0D17] border-t border-[#0B0D17]/10"
+      className="py-24 sm:py-32 bg-[#0B0D17] text-[#F8F9FA] border-t border-white/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-          {/* Left Column: High-Impact Headline & Path 1 (Direct WhatsApp + Channels) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Left Column: Bold Studio Closing Statement & Direct Channels */}
           <div className="lg:col-span-5 text-left">
-            <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-[#4361EE] font-medium mb-3">
+            <p className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-[#DEB660] font-medium mb-4">
               Conversación Inicial
             </p>
 
-            <h2 className="text-editorial-title font-bold text-[#0B0D17] mb-5">
+            <h2 className="text-editorial-title font-bold text-white mb-5">
               Tu siguiente etapa comienza con una conversación.
             </h2>
 
-            <p className="text-base sm:text-lg text-[#0B0D17]/70 leading-relaxed mb-10">
-              Cuéntanos qué estás construyendo. Descubramos cómo impulsar tu marca.
+            <p className="text-base text-white/70 leading-relaxed mb-10">
+              Cuéntanos qué estás construyendo. Revisemos cómo dar dirección estratégica y nivel de
+              ejecución a tu marca.
             </p>
 
-            {/* Primary Direct Path: WhatsApp */}
             <div className="mb-10">
               <a
                 href="https://wa.me/51920690260?text=Hola%20Power%20Digital,%20estoy%20construyendo%20un%20proyecto%20y%20quiero%20conversar%20sobre%20c%C3%B3mo%20impulsar%20mi%20marca"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 bg-[#0B0D17] hover:bg-[#4361EE] text-white px-6 py-4 rounded-xl text-sm font-bold transition-colors w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-3 bg-[#4361EE] hover:bg-[#3451DE] text-white px-7 py-4 text-sm font-bold transition-colors w-full sm:w-auto"
               >
-                <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
-                <span>Conversación rápida por WhatsApp</span>
+                <WhatsAppIcon className="w-5 h-5 text-white" />
+                <span>Conversar directo por WhatsApp</span>
                 <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
               </a>
             </div>
 
-            {/* Clean Hairline Channels Directory */}
-            <div className="divide-y divide-[#0B0D17]/10 border-t border-b border-[#0B0D17]/10">
+            <div className="divide-y divide-white/12 border-t border-b border-white/12">
               <a
                 href="https://wa.me/51920690260?text=Hola%20Power%20Digital,%20quiero%20conversar%20sobre%20mi%20marca"
                 target="_blank"
@@ -172,10 +170,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                 className="py-4 flex items-center justify-between group"
               >
                 <div>
-                  <span className="font-mono-code text-[11px] uppercase tracking-wider text-[#0B0D17]/50 block">
-                    WhatsApp Directo
+                  <span className="font-mono-code text-[11px] uppercase tracking-wider text-white/45 block">
+                    WhatsApp
                   </span>
-                  <span className="text-sm sm:text-base font-semibold text-[#0B0D17] group-hover:text-[#4361EE] transition-colors">
+                  <span className="text-sm sm:text-base font-semibold text-white group-hover:text-[#DEB660] transition-colors">
                     +51 920 690 260
                   </span>
                 </div>
@@ -187,10 +185,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                 className="py-4 flex items-center justify-between group"
               >
                 <div>
-                  <span className="font-mono-code text-[11px] uppercase tracking-wider text-[#0B0D17]/50 block">
-                    Correo Corporativo
+                  <span className="font-mono-code text-[11px] uppercase tracking-wider text-white/45 block">
+                    Correo
                   </span>
-                  <span className="text-sm sm:text-base font-semibold text-[#0B0D17] group-hover:text-[#4361EE] transition-colors">
+                  <span className="text-sm sm:text-base font-semibold text-white group-hover:text-[#DEB660] transition-colors">
                     info@powerdigital.pe
                   </span>
                 </div>
@@ -204,23 +202,23 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                 className="py-4 flex items-center justify-between group"
               >
                 <div>
-                  <span className="font-mono-code text-[11px] uppercase tracking-wider text-[#0B0D17]/50 block">
+                  <span className="font-mono-code text-[11px] uppercase tracking-wider text-white/45 block">
                     Instagram
                   </span>
-                  <span className="text-sm sm:text-base font-semibold text-[#0B0D17] group-hover:text-[#4361EE] transition-colors">
+                  <span className="text-sm sm:text-base font-semibold text-white group-hover:text-[#DEB660] transition-colors">
                     @powerdigital.ai
                   </span>
                 </div>
-                <Instagram className="w-5 h-5 text-[#8A6B20]" aria-hidden="true" />
+                <Instagram className="w-5 h-5 text-[#DEB660]" aria-hidden="true" />
               </a>
             </div>
           </div>
 
-          {/* Right Column: Path 2 (Structured Project Form with Honest Direct Dispatch) */}
+          {/* Right Column: Clean Editorial Brief Sheet */}
           <div className="lg:col-span-7">
-            <div className="bg-[#FFFFFF] rounded-3xl p-7 sm:p-10 border border-[#0B0D17]/10 shadow-xs text-left">
+            <div className="bg-[#FFFFFF] text-[#0B0D17] p-6 sm:p-10 border border-white/15 text-left">
               {prepared ? (
-                <div className="py-4">
+                <div className="py-2">
                   <div className="flex items-center gap-3 text-[#4361EE] mb-4">
                     <CheckCircle2 className="w-6 h-6 shrink-0" aria-hidden="true" />
                     <span className="font-mono-code text-xs uppercase tracking-wider font-semibold">
@@ -232,11 +230,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                     Tu resumen está listo, {formData.nombre}
                   </h3>
                   <p className="text-sm text-[#0B0D17]/70 leading-relaxed mb-6">
-                    Elige tu canal preferido para enviarnos este detalle directamente sin tener que
-                    volver a escribirlo:
+                    Elige tu canal directo para enviarnos esta consulta sin repetir datos:
                   </p>
 
-                  <pre className="p-4 rounded-2xl bg-[#F8F9FA] border border-[#0B0D17]/10 text-xs sm:text-sm text-[#0B0D17]/85 whitespace-pre-wrap font-sans leading-relaxed mb-6">
+                  <pre className="p-4 bg-[#F8F9FA] border border-[#0B0D17]/12 text-xs sm:text-sm text-[#0B0D17]/85 whitespace-pre-wrap font-sans leading-relaxed mb-6">
                     {buildSummaryText()}
                   </pre>
 
@@ -245,7 +242,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                       href={generateWhatsAppLink()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb857] text-white px-6 py-3.5 rounded-xl text-sm font-bold transition-colors"
+                      className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb857] text-white px-6 py-3.5 text-sm font-bold transition-colors"
                     >
                       <WhatsAppIcon className="w-4 h-4 text-white" />
                       <span>Enviar por WhatsApp</span>
@@ -254,7 +251,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
 
                     <a
                       href={generateMailtoLink()}
-                      className="inline-flex items-center justify-center gap-2 bg-[#4361EE] hover:bg-[#3451DE] text-white px-6 py-3.5 rounded-xl text-sm font-bold transition-colors"
+                      className="inline-flex items-center justify-center gap-2 bg-[#4361EE] hover:bg-[#3451DE] text-white px-6 py-3.5 text-sm font-bold transition-colors"
                     >
                       <Mail className="w-4 h-4" aria-hidden="true" />
                       <span>Abrir en mi correo</span>
@@ -263,7 +260,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                     <button
                       type="button"
                       onClick={handleCopyBrief}
-                      className="inline-flex items-center justify-center gap-2 border border-[#0B0D17]/15 hover:border-[#0B0D17] px-5 py-3.5 rounded-xl text-sm font-semibold text-[#0B0D17] transition-colors cursor-pointer"
+                      className="inline-flex items-center justify-center gap-2 border border-[#0B0D17]/20 hover:border-[#0B0D17] px-5 py-3.5 text-sm font-semibold text-[#0B0D17] transition-colors cursor-pointer"
                     >
                       {copied ? (
                         <>
@@ -289,19 +286,19 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                  <div>
+                  <div className="pb-4 border-b border-[#0B0D17]/10">
                     <h3 className="text-xl sm:text-2xl font-bold text-[#0B0D17] mb-1">
                       Cuéntanos sobre tu proyecto
                     </h3>
                     <p className="text-xs sm:text-sm text-[#0B0D17]/60">
-                      Completa los campos para estructurar tu consulta y abrir el envío directo.
+                      Preparamos el resumen de tu consulta para envío directo por WhatsApp o correo.
                     </p>
                   </div>
 
                   {errorMsg && (
                     <div
                       role="alert"
-                      className="p-3.5 bg-red-50 border border-red-200 text-red-800 text-xs sm:text-sm rounded-xl font-medium"
+                      className="p-3.5 bg-red-50 border border-red-200 text-red-800 text-xs sm:text-sm font-medium"
                     >
                       {errorMsg}
                     </div>
@@ -324,7 +321,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                         placeholder="Tu nombre completo"
                         value={formData.nombre}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-[#0B0D17]/15 focus:border-[#4361EE] outline-hidden transition-colors text-sm text-[#0B0D17] bg-[#F8F9FA]/60"
+                        className="w-full px-4 py-3 border border-[#0B0D17]/20 focus:border-[#4361EE] outline-hidden transition-colors text-sm text-[#0B0D17] bg-[#F8F9FA]"
                       />
                     </div>
 
@@ -344,7 +341,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                         placeholder="Nombre comercial o marca"
                         value={formData.empresa}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-[#0B0D17]/15 focus:border-[#4361EE] outline-hidden transition-colors text-sm text-[#0B0D17] bg-[#F8F9FA]/60"
+                        className="w-full px-4 py-3 border border-[#0B0D17]/20 focus:border-[#4361EE] outline-hidden transition-colors text-sm text-[#0B0D17] bg-[#F8F9FA]"
                       />
                     </div>
                   </div>
@@ -366,7 +363,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                         placeholder="nombre@empresa.com"
                         value={formData.correo}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-[#0B0D17]/15 focus:border-[#4361EE] outline-hidden transition-colors text-sm text-[#0B0D17] bg-[#F8F9FA]/60"
+                        className="w-full px-4 py-3 border border-[#0B0D17]/20 focus:border-[#4361EE] outline-hidden transition-colors text-sm text-[#0B0D17] bg-[#F8F9FA]"
                       />
                     </div>
 
@@ -375,14 +372,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                         htmlFor="contact-servicio"
                         className="block text-xs font-bold text-[#0B0D17] mb-2 uppercase tracking-wide"
                       >
-                        Servicio de interés
+                        Disciplina principal
                       </label>
                       <select
                         id="contact-servicio"
                         name="servicio"
                         value={formData.servicio}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-[#0B0D17]/15 focus:border-[#4361EE] outline-hidden transition-colors text-sm text-[#0B0D17] bg-[#F8F9FA]/60 cursor-pointer"
+                        className="w-full px-4 py-3 border border-[#0B0D17]/20 focus:border-[#4361EE] outline-hidden transition-colors text-sm text-[#0B0D17] bg-[#F8F9FA] cursor-pointer"
                       >
                         {SERVICE_OPTIONS.map((option) => (
                           <option key={option} value={option}>
@@ -408,7 +405,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                       placeholder="Cuéntanos qué estás construyendo, tu objetivo actual o el principal reto de tu marca..."
                       value={formData.descripcion}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-[#0B0D17]/15 focus:border-[#4361EE] outline-hidden transition-colors text-sm text-[#0B0D17] bg-[#F8F9FA]/60 resize-y"
+                      className="w-full px-4 py-3 border border-[#0B0D17]/20 focus:border-[#4361EE] outline-hidden transition-colors text-sm text-[#0B0D17] bg-[#F8F9FA] resize-y"
                     />
                   </div>
 
@@ -419,7 +416,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                       type="checkbox"
                       checked={formData.privacidad}
                       onChange={handleChange}
-                      className="mt-1 w-4 h-4 rounded border-[#0B0D17]/30 text-[#4361EE] focus:ring-[#4361EE] cursor-pointer"
+                      className="mt-1 w-4 h-4 border-[#0B0D17]/30 text-[#4361EE] focus:ring-[#4361EE] cursor-pointer"
                     />
                     <label
                       htmlFor="contact-privacidad"
@@ -433,7 +430,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full inline-flex items-center justify-center gap-2.5 bg-[#4361EE] hover:bg-[#3451DE] text-white px-7 py-4 rounded-xl text-sm sm:text-base font-bold transition-colors disabled:opacity-60 cursor-pointer"
+                    className="w-full inline-flex items-center justify-center gap-2.5 bg-[#0B0D17] hover:bg-[#4361EE] text-white px-7 py-4 text-sm sm:text-base font-bold transition-colors disabled:opacity-60 cursor-pointer"
                   >
                     <span>
                       {loading ? 'Preparando resumen...' : 'Preparar envío de proyecto'}
